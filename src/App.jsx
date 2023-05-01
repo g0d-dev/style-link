@@ -1,13 +1,8 @@
 import React from "react";
+import Router from "./Router";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <div>1</div>
-      </header>
-    </div>
-  );
+  return <Router />;
 }
 
 export default App;
