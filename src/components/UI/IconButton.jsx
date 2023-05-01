@@ -22,3 +22,13 @@ function IconButton(props) {
 }
 
 export default IconButton;
+
+// import { IconName } from "react-icons/*";
+// Heart:  BsSuitHeartFill, BsSuitHeart
+// Search: BsSearch
+// close: CgClose
+// more: FiMoreVertical
+// image: BsImage
+// arrow: RxArrowLeft, RxArrowRight
+// plus: FiPlus
+// minus: FiMinus
