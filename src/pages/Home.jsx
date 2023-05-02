@@ -4,7 +4,6 @@ function Home() {
   return (
     <>
       <span>HomePage</span>
-      <span>prtest</span>
     </>
   );
 }

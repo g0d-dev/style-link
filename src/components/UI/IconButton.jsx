@@ -7,9 +7,7 @@ IconButton.propTypes = {
   onClickFn: PropTypes.func.isRequired,
 };
 
-function IconButton(props) {
-  const { children, classname, onClickFn } = props;
-
+function IconButton({ children, classname, onClickFn }) {
   const buttonStyle = `${classname} `;
 
   return (

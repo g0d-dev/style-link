@@ -8,9 +8,12 @@ TextAreaInput.propTypes = {
   classname: PropTypes.string.isRequired,
 };
 
-function TextAreaInput(props) {
-  const { inputValue, placeHolderText, setInputValue, classname } = props;
-
+function TextAreaInput({
+  inputValue,
+  placeHolderText,
+  setInputValue,
+  classname,
+}) {
   const InputStyle = `${classname} `;
   return (
     <>

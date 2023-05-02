@@ -8,9 +8,7 @@ BasicInput.propTypes = {
   classname: PropTypes.string.isRequired,
 };
 
-function BasicInput(props) {
-  const { inputValue, placeHolderText, setInputValue, classname } = props;
-
+function BasicInput({ inputValue, placeHolderText, setInputValue, classname }) {
   const InputStyle = `${classname} `;
   return (
     <>
