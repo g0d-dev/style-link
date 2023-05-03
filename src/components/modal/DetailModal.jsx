@@ -2,9 +2,9 @@ import React from "react";
 
 function DetailModal() {
   return (
-    <>
-      <span>DetailModal</span>
-    </>
+    <div>
+      <p>모달창입니다.</p>
+    </div>
   );
 }
 
