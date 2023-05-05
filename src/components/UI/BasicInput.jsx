@@ -4,13 +4,13 @@ import PropTypes from "prop-types";
 BasicInput.propTypes = {
   placeHolderText: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,
-  setInputValue: PropTypes.func.isRequired,
+  onChangeHandler: PropTypes.func.isRequired,
   classname: PropTypes.string.isRequired,
   inputId: PropTypes.string.isRequired,
 };
 
 function BasicInput(props) {
-  const { inputId, inputValue, placeHolderText, setInputValue, classname } =
+  const { inputId, inputValue, placeHolderText, onChangeHandler, classname } =
     props;
 
   const InputStyle = `${classname}  border border-opacity-50 rounded-lg p-2.5 text-sm outline-none`;
@@ -20,10 +20,7 @@ function BasicInput(props) {
         id={inputId}
         placeholder={placeHolderText}
         value={inputValue}
-        onChange={(e) => {
-          setInputValue(e.target.value);
-          console.log(e.target.value);
-        }}
+        onChange={onChangeHandler}
         className={InputStyle}
       />
     </>

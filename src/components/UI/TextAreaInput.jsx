@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 TextAreaInput.propTypes = {
   placeHolderText: PropTypes.string.isRequired,
   textInputValue: PropTypes.string.isRequired,
-  setTextInputValue: PropTypes.func.isRequired,
+  onTextAreaChangeHandler: PropTypes.func.isRequired,
   classname: PropTypes.string.isRequired,
   inputId: PropTypes.string.isRequired,
 };
@@ -14,7 +14,7 @@ function TextAreaInput(props) {
     inputId,
     textInputValue,
     placeHolderText,
-    setTextInputValue,
+    onTextAreaChangeHandler,
     classname,
   } = props;
 
@@ -26,10 +26,7 @@ function TextAreaInput(props) {
         id={inputId}
         placeholder={placeHolderText}
         value={textInputValue}
-        onChange={(e) => {
-          setTextInputValue(e.target.value);
-          console.log(e.target.value);
-        }}
+        onChange={onTextAreaChangeHandler}
         className={inputStyle}
       />
     </>
