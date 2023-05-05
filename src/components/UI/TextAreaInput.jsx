@@ -3,25 +3,29 @@ import PropTypes from "prop-types";
 
 TextAreaInput.propTypes = {
   placeHolderText: PropTypes.string.isRequired,
-  inputValue: PropTypes.string.isRequired,
-  setInputValue: PropTypes.func.isRequired,
+  textInputValue: PropTypes.string.isRequired,
+  onTextAreaChangeHandler: PropTypes.func.isRequired,
   classname: PropTypes.string.isRequired,
+  inputId: PropTypes.string.isRequired,
 };
 
 function TextAreaInput({
-  inputValue,
+  inputId,
+  textInputValue,
   placeHolderText,
-  setInputValue,
+  onTextAreaChangeHandler,
   classname,
 }) {
-  const InputStyle = `${classname} `;
+  const inputStyle = `${classname} border border-opacity-50 rounded-lg p-2.5 text-sm outline-none resize-none`;
+
   return (
     <>
-      <input
+      <textarea
+        id={inputId}
         placeholder={placeHolderText}
-        value={inputValue}
-        onChange={(e) => setInputValue(e)}
-        className={InputStyle}
+        value={textInputValue}
+        onChange={onTextAreaChangeHandler}
+        className={inputStyle}
       />
     </>
   );
