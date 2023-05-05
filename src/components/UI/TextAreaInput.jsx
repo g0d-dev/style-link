@@ -9,15 +9,13 @@ TextAreaInput.propTypes = {
   inputId: PropTypes.string.isRequired,
 };
 
-function TextAreaInput(props) {
-  const {
-    inputId,
-    textInputValue,
-    placeHolderText,
-    onTextAreaChangeHandler,
-    classname,
-  } = props;
-
+function TextAreaInput({
+  inputId,
+  textInputValue,
+  placeHolderText,
+  onTextAreaChangeHandler,
+  classname,
+}) {
   const inputStyle = `${classname} border border-opacity-50 rounded-lg p-2.5 text-sm outline-none resize-none`;
 
   return (

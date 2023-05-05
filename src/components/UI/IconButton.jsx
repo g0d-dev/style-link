@@ -8,9 +8,7 @@ IconButton.propTypes = {
   iconType: PropTypes.string.isRequired,
 };
 
-function IconButton(props) {
-  const { children, classname, onClickFn, iconType } = props;
-
+function IconButton({ children, classname, onClickFn, iconType }) {
   const buttonStyle = `${classname} text-black`;
 
   return (

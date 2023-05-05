@@ -8,9 +8,7 @@ BasicButton.propTypes = {
   btnType: PropTypes.string.isRequired,
 };
 
-function BasicButton(props) {
-  const { buttonText, classname, onClickFn, btnType } = props;
-
+function BasicButton({ buttonText, classname, onClickFn, btnType }) {
   const buttonStyle = `${classname} bg-white text-black border py-2 px-8 rounded-xl font-light text-sm text-center hover:bg-black hover:text-white`;
 
   return (
