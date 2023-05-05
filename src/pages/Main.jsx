@@ -74,7 +74,8 @@ const people = [
 function Main() {
   const [isLiked, setIsLiked] = useState(people.isLiked);
 
-  const likeToggleHandler = () => {
+  const likeToggleHandler = (e) => {
+    console.log(e);
     setIsLiked(!isLiked);
   };
 
@@ -95,7 +96,11 @@ function Main() {
               </p>
             </div>
             <div className="flex justify-center items-center">
-              <IconButton classname="elementType" onClickFn={likeToggleHandler}>
+              <IconButton
+                classname="text-2xl"
+                onClickFn={likeToggleHandler}
+                iconType="button"
+              >
                 {isLiked ? <BsSuitHeartFill /> : <BsSuitHeart />}
               </IconButton>
               <span className="pl-[5px]"></span>

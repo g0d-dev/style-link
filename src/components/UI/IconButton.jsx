@@ -5,16 +5,15 @@ IconButton.propTypes = {
   children: PropTypes.node.isRequired,
   classname: PropTypes.string.isRequired,
   onClickFn: PropTypes.func.isRequired,
+  iconType: PropTypes.string.isRequired,
 };
 
-function IconButton(props) {
-  const { children, classname, onClickFn } = props;
-
-  const buttonStyle = `${classname} `;
+function IconButton({ children, classname, onClickFn, iconType }) {
+  const buttonStyle = `${classname} text-black`;
 
   return (
     <>
-      <button className={buttonStyle} onClick={onClickFn}>
+      <button className={buttonStyle} onClick={onClickFn} type={iconType}>
         {children}
       </button>
     </>
