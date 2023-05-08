@@ -74,20 +74,19 @@ const people = [
 function Main() {
   const [isLiked, setIsLiked] = useState(people.isLiked);
 
-  const likeToggleHandler = (e) => {
-    console.log(e);
+  const likeToggleHandler = () => {
     setIsLiked(!isLiked);
   };
 
   return (
-    <ul className="flex px-10 flex-wrap">
+    <ul className="flex flex-wrap px-10">
       {people.map((person) => (
-        <li key={person.id} className="py-4 flex flex-col px-6 basis-1/4">
+        <li key={person.id} className="flex flex-col px-6 py-4 basis-1/4">
           <img src={person.image} alt="" className="object-cover rounded-lg" />
           <div className="flex justify-between items-center pt-[10px] ">
-            <div className="flex justify-center items-center">
+            <div className="flex items-center justify-center">
               <img
-                className="h-10 w-10 rounded-full object-cover"
+                className="object-cover w-10 h-10 rounded-full"
                 src={person.avatar}
                 alt=""
               />
@@ -95,7 +94,7 @@ function Main() {
                 {person.displayName}
               </p>
             </div>
-            <div className="flex justify-center items-center">
+            <div className="flex items-center justify-center">
               <IconButton
                 classname="text-2xl"
                 onClickFn={likeToggleHandler}
