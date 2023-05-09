@@ -91,7 +91,11 @@ function PostModal({ setModal }) {
             htmlFor="uploadImage"
             className="bg-[#f5f5f5] w-1/2 h-full text-black text-opacity-50 rounded-l-3xl flex flex-col items-center justify-center cursor-pointer object-cover"
           >
-            <img src={imageFile} alt="착장이미지" />
+            <img
+              src={imageFile}
+              alt="착장이미지"
+              className="object-scale-down w-full h-full"
+            />
           </label>
         ) : (
           <label
