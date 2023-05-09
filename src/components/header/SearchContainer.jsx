@@ -4,10 +4,10 @@ import { BsSearch } from "react-icons/bs";
 
 function SearchContainer() {
   return (
-    <div className="flex items-center text-2xl">
+    <div className="flex items-center w-full pr-40 text-2xl">
       <BasicInput
-        placeHolderText="검색할 태그를 입력해 주새요"
-        classname="h-10 mr-3 w-[30rem] ml-44"
+        placeHolderText="검색할 태그를 입력해 주세요..."
+        classname="w-full"
       />
       <BsSearch />
     </div>

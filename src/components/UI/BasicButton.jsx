@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 BasicButton.propTypes = {
   buttonText: PropTypes.string.isRequired,
   classname: PropTypes.string.isRequired,
-  onClickFn: PropTypes.func.isRequired,
+  onClickFn: PropTypes.func,
   btnType: PropTypes.string.isRequired,
 };
 

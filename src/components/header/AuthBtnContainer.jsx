@@ -2,8 +2,7 @@ import React from "react";
 import BasicButton from "../UI/BasicButton";
 
 function AuthBtnContainer() {
-  const classname =
-    "px-4 border-none hover:bg-white hover:text-black text-slate-500";
+  const classname = "";
   const AuthBtn = [
     {
       id: 1,
@@ -17,7 +16,7 @@ function AuthBtnContainer() {
     },
   ];
   return (
-    <div className="flex justify-end mr-4">
+    <div className="flex items-center justify-end">
       {AuthBtn.map((btn) => {
         return (
           <BasicButton
