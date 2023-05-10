@@ -39,6 +39,7 @@ function PostModal() {
   };
 
   const navigator = useNavigate();
+
   const onSubmitHandler = () => {
     navigator("/");
   };
