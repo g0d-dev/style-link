@@ -18,7 +18,7 @@ function Header() {
         <div className="flex justify-between w-full">
           <SearchContainer />
           <BasicButton
-            classname=""
+            classname="w-40"
             buttonText="NEW POST"
             btnType="button"
             onClickFn={modalHandler}

@@ -140,13 +140,14 @@ function PostModal({ setModal }) {
                   classname="pb-40"
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="relative flex flex-col">
                 <label
                   htmlFor="tags"
                   className="text-lg font-light pt-[30px] pb-[10px]"
                 >
                   Tags.
                 </label>
+                <div className="absolute bottom-0 left-0">태그상자</div>
                 <BasicInput
                   inputId="tags"
                   placeHolderText="태그를 작성 후 엔터를 입력해 주세요..."
