@@ -9,7 +9,7 @@ BasicButton.propTypes = {
 };
 
 function BasicButton({ buttonText, classname, onClickFn, btnType }) {
-  const buttonStyle = `${classname} bg-white text-black border py-2 px-8 rounded-xl font-light text-sm text-center hover:bg-black hover:text-white`;
+  const buttonStyle = `${classname} bg-white text-black border rounded-xl font-light text-sm text-center`;
 
   return (
     <>
