@@ -8,12 +8,15 @@ import TextAreaInput from "../UI/TextAreaInput";
 import BasicInput from "../UI/BasicInput";
 import BasicButton from "../UI/BasicButton";
 import PropTypes from "prop-types";
+import TagInput from "../UI/TagInput";
+// import TagInput from "../UI/TagInput";
 
 PostModal.propTypes = {
   setModal: PropTypes.func,
 };
 
 function PostModal({ setModal }) {
+  const btnClass = "w-24 py-1 hover:bg-black hover:text-white";
   const navigator = useNavigate();
 
   // 페이지네이션
@@ -28,12 +31,13 @@ function PostModal({ setModal }) {
   };
 
   // post 핸들러
-  const onSubmitHandler = () => {
-    navigator("/");
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    navigator("/main");
   };
 
   // 인풋 추가 핸들러
-  const onAddedHandler = () => {
+  const onAddedHandler = (e) => {
     navigator("/");
   };
 
@@ -41,12 +45,6 @@ function PostModal({ setModal }) {
   const [textInputValue, setTextInputValue] = useState("");
   const onTextAreaChangeHandler = (e) => {
     setTextInputValue(e.target.value);
-  };
-
-  // 태그 인풋
-  const [inputValue, setInputValue] = useState("");
-  const onChangeHandler = (e) => {
-    setInputValue(e.target.value);
   };
 
   // 링크 인풋
@@ -84,7 +82,7 @@ function PostModal({ setModal }) {
 
   return (
     <div className="fixed w-full h-full -translate-x-1/2 -translate-y-1/2 bg-black top-1/2 left-1/2 bg-opacity-80">
-      <div className="flex items-center justify-center w-full h-[500px] fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-10 px-10">
+      <div className="fixed z-10 flex items-center justify-center w-full px-10 -translate-x-1/2 -translate-y-1/2 h-1/2 top-1/2 left-1/2">
         {imageFile ? (
           <label
             htmlFor="uploadImage"
@@ -119,11 +117,11 @@ function PostModal({ setModal }) {
           onChange={imagePreviewHandler}
           ref={imageRef}
           className="hidden"
-        ></input>
+        />
 
         {!changePage ? (
           <div className="w-1/2 px-[6.25rem] bg-white h-full rounded-r-3xl relative">
-            <form className="flex flex-col" onSubmit={onSubmitHandler}>
+            <div className="flex flex-col">
               <div className="flex flex-col">
                 <label
                   htmlFor="contents"
@@ -139,36 +137,32 @@ function PostModal({ setModal }) {
                   classname="pb-40"
                 />
               </div>
-              <div className="relative flex flex-col">
+              <form
+                className="relative flex flex-col"
+                onSubmit={onSubmitHandler}
+              >
                 <label
                   htmlFor="tags"
                   className="text-lg font-light pt-[30px] pb-[10px]"
                 >
                   Tags.
                 </label>
-                {/* <div className="absolute bottom-0 left-0">태그상자</div> */}
-                <BasicInput
-                  inputId="tags"
-                  placeHolderText="태그를 작성 후 엔터를 입력해 주세요..."
-                  inputValue={inputValue}
-                  onChangeHandler={onChangeHandler}
-                  classname=""
-                />
-              </div>
+                <TagInput />
+              </form>
               <div className="pt-[30px] mx-auto">
                 <BasicButton
                   buttonText="POST"
                   btnType="submit"
-                  classname="mr-[10px] border-opacity-100"
+                  classname={`${btnClass} mr-[10px] border-opacity-100 w-24 py-1`}
                 />
                 <BasicButton
                   buttonText="CANCEL"
                   btnType="button"
-                  classname=""
+                  classname={btnClass}
                   onClickFn={modalCloseHandler}
                 />
               </div>
-            </form>
+            </div>
             <IconButton
               onClickFn={onChangePageHandler}
               iconType="button"
@@ -191,7 +185,7 @@ function PostModal({ setModal }) {
                   착용한 상품의 [구입 링크 / 상품명 / 구매 사이즈]를 공유할 수
                   있습니다
                 </p>
-                <div className="relative flex items-center justify-between">
+                <div className="relative flex items-center justify-between w-full">
                   <BasicInput
                     inputId="infos"
                     placeHolderText="Link..."
@@ -226,12 +220,12 @@ function PostModal({ setModal }) {
                 <BasicButton
                   buttonText="POST"
                   btnType="submit"
-                  classname="mr-[10px] border-opacity-100"
+                  classname={`${btnClass} mr-[10px] border-opacity-100 w-24 py-1`}
                 />
                 <BasicButton
                   buttonText="CANCEL"
                   btnType="button"
-                  classname=""
+                  classname={btnClass}
                   onClickFn={modalCloseHandler}
                 />
               </div>
