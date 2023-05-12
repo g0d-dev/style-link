@@ -3,7 +3,7 @@ import { contents } from "../../mocks/contentsData";
 import BasicButton from "../UI/BasicButton";
 import ContentsListItem from "./ContentsListItem";
 
-export default function ContentsList() {
+function ContentsList() {
   const classname =
     "hover:underline hover:text-slate-800 border-none text-slate-500 px-2";
   const listItemFilter = [
@@ -31,7 +31,7 @@ export default function ContentsList() {
           );
         })}
       </div>
-      <ul className="flex flex-wrap gap-10 justify-center">
+      <ul className="flex flex-wrap py-10 px-10">
         {contents.map((person) => (
           <ContentsListItem key={person.id} person={person} />
         ))}
@@ -39,3 +39,5 @@ export default function ContentsList() {
     </>
   );
 }
+
+export default ContentsList;
