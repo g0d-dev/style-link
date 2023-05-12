@@ -15,12 +15,12 @@ export default function ContentsListItem({ person }) {
   };
 
   return (
-    <li className="py-4 flex flex-col basis-1/5">
+    <li className="flex flex-col py-4 basis-1/5">
       <img src={person.image} alt="" className="object-cover rounded-lg" />
       <div className="flex justify-between items-center pt-[10px] ">
-        <div className="flex justify-center items-center">
+        <div className="flex items-center justify-center">
           <img
-            className="h-10 w-10 rounded-full object-cover"
+            className="object-cover w-10 h-10 rounded-full"
             src={person.avatar}
             alt=""
           />
@@ -28,7 +28,7 @@ export default function ContentsListItem({ person }) {
             {person.displayName}
           </p>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex items-center justify-center">
           <IconButton
             classname="text-2xl"
             onClickFn={likeToggleHandler}
