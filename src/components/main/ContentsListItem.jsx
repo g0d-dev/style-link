@@ -7,7 +7,7 @@ ContentsListItem.propTypes = {
   person: PropTypes.array.isRequired,
 };
 
-export default function ContentsListItem({ person }) {
+function ContentsListItem({ person }) {
   const [isLiked, setIsLiked] = useState(person.isLiked);
 
   const likeToggleHandler = () => {
@@ -15,8 +15,8 @@ export default function ContentsListItem({ person }) {
   };
 
   return (
-    <li className="py-4 flex flex-col basis-1/5">
-      <img src={person.image} alt="" className="object-cover rounded-lg" />
+    <li className="flex flex-col basis-1/5 place-between px-5 w-full">
+      <img src={person.image} alt="" className="rounded-lg" />
       <div className="flex justify-between items-center pt-[10px] ">
         <div className="flex justify-center items-center">
           <img
@@ -28,18 +28,20 @@ export default function ContentsListItem({ person }) {
             {person.displayName}
           </p>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex flex-wrap items-center space-x-2 justify-center w-15">
           <IconButton
-            classname="text-2xl"
+            classname="text-2xl text-red-500"
             onClickFn={likeToggleHandler}
             iconType="button"
           >
             {isLiked ? <BsSuitHeartFill /> : <BsSuitHeart />}
           </IconButton>
-          <span className="pl-[5px]">{isLiked ? 1 : 0}</span>
+          <span>{isLiked ? 1 : 0}</span>
         </div>
       </div>
       <div className="pt-[10px]">{person.tags}</div>
     </li>
   );
 }
+
+export default ContentsListItem;
