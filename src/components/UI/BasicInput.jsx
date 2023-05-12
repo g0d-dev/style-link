@@ -17,15 +17,13 @@ function BasicInput({
 }) {
   const InputStyle = `${classname}  border border-opacity-50 rounded-lg p-2.5 text-sm outline-none`;
   return (
-    <>
-      <input
-        id={inputId}
-        placeholder={placeHolderText}
-        value={inputValue}
-        onChange={onChangeHandler}
-        className={InputStyle}
-      />
-    </>
+    <input
+      id={inputId}
+      placeholder={placeHolderText}
+      value={inputValue}
+      onChange={onChangeHandler}
+      className={InputStyle}
+    />
   );
 }
 

@@ -19,15 +19,13 @@ function TextAreaInput({
   const inputStyle = `${classname} border border-opacity-50 rounded-lg p-2.5 text-sm outline-none resize-none`;
 
   return (
-    <>
-      <textarea
-        id={inputId}
-        placeholder={placeHolderText}
-        value={textInputValue}
-        onChange={onTextAreaChangeHandler}
-        className={inputStyle}
-      />
-    </>
+    <textarea
+      id={inputId}
+      placeholder={placeHolderText}
+      value={textInputValue}
+      onChange={onTextAreaChangeHandler}
+      className={inputStyle}
+    />
   );
 }
 

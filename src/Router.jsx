@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Main from "./pages/Main";
 import MainLayout from "./components/layout/MainLayout";
-import PostModal from "./components/modal/PostModal";
 import DetailModal from "./components/modal/DetailModal";
 
 function Router() {
@@ -12,7 +11,6 @@ function Router() {
       <Routes>
         {/* 헤더가 필요없는 페이지 */}
         <Route path="/" element={<Home />} />
-        <Route path="/post" element={<PostModal />} />
         <Route path="/detail" element={<DetailModal />} />
 
         {/* 헤더가 필요한 페이지 */}
