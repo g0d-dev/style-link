@@ -7,10 +7,12 @@ function ContentsList() {
   const [isFilterNewed, setIsFilterNewed] = useState(false);
   const filterNewedHandler = () => {
     setIsFilterNewed(!isFilterNewed);
+    console.log(`최신순: ${isFilterNewed}`);
   };
   const [isFilterLiked, setIsFilterLiked] = useState(false);
   const filterLikedHandler = () => {
     setIsFilterLiked(!isFilterLiked);
+    console.log(`좋아요순: ${isFilterLiked}`);
   };
 
   const classname =
@@ -45,7 +47,7 @@ function ContentsList() {
           );
         })}
       </div>
-      <ul className="flex flex-wrap px-10 py-10 relative">
+      <ul className="flex flex-wrap px-10 py-10">
         {!isFilterNewed
           ? contents
               .filter((item) => item.id)
