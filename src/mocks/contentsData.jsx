@@ -133,7 +133,7 @@ const contents = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     image:
       "https://images.unsplash.com/photo-1662838643858-37b91af7af40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTI5fHxvb3RkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
     displayName: "전종서",

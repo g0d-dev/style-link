@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DetailModal from "../modal/DetailModal";
 import PropTypes from "prop-types";
 import IconButton from "../UI/IconButton";
 import { BsSuitHeartFill, BsSuitHeart } from "react-icons/bs";
@@ -14,10 +15,18 @@ function ContentsListItem({ person }) {
     setIsLiked(!isLiked);
   };
 
-  return (
+  const [openDetail, setOpenDetail] = useState(false);
 
-    <li className="flex flex-col py-4 basis-1/5">
-      <img src={person.image} alt="" className="object-cover rounded-lg" />
+  const openDetailHandler = () => {
+    setOpenDetail(true);
+  };
+
+  return (
+    <li className="flex flex-col px-4 basis-1/5">
+      <button type="button" onClick={openDetailHandler}>
+        <img src={person.image} alt="" className="object-cover rounded-lg" />
+      </button>
+      {openDetail && <DetailModal setOpenDetail={setOpenDetail} />}
       <div className="flex justify-between items-center pt-[10px] ">
         <div className="flex items-center justify-center">
           <img
