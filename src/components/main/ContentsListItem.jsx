@@ -38,7 +38,7 @@ function ContentsListItem({ person }) {
             {person.displayName}
           </p>
         </div>
-        <div className="flex flex-wrap items-center space-x-2 justify-center w-15">
+        <div className="flex flex-wrap items-center justify-center space-x-2 w-15">
           <IconButton
             classname="text-2xl text-red-500"
             onClickFn={likeToggleHandler}

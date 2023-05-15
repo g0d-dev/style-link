@@ -7,8 +7,10 @@ BasicInput.propTypes = {
   onChangeHandler: PropTypes.func.isRequired,
   classname: PropTypes.string.isRequired,
   inputId: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 function BasicInput({
+  name,
   inputId,
   inputValue,
   placeHolderText,
@@ -18,6 +20,7 @@ function BasicInput({
   const InputStyle = `${classname}  border border-opacity-50 rounded-lg p-2.5 text-sm outline-none`;
   return (
     <input
+      name={name}
       id={inputId}
       placeholder={placeHolderText}
       value={inputValue}
