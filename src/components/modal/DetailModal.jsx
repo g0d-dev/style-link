@@ -3,15 +3,27 @@ import { contents } from "../../mocks/contentsData";
 import { CgClose } from "react-icons/cg";
 import IconButton from "../UI/IconButton";
 import { FiMoreVertical } from "react-icons/fi";
+import PropTypes from "prop-types";
 
-function DetailModal() {
+DetailModal.propTypes = {
+  setOpenDetail: PropTypes.func,
+};
+
+function DetailModal({ setOpenDetail }) {
+  const modalCloseHandler = () => {
+    setOpenDetail(false);
+  };
   return (
-    <div role="bg" className="fixed w-full h-full bg-black bg-opacity-80">
+    <div
+      role="bg"
+      className="fixed w-full h-full -translate-x-1/2 -translate-y-1/2 bg-black top-1/2 left-1/2 bg-opacity-80"
+    >
       <div className="flex items-center justify-center w-full h-[500px] fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-10 px-10 rounded-l-3xl">
         <div className="bg-[#ffffff] w-1/2 h-[500px] rounded-l-3xl border-r relative">
           <IconButton
-            classname="text-2xl absolute top-5 left-5"
+            classname="absolute text-2xl top-5 left-5"
             iconType="button"
+            onClickFn={modalCloseHandler}
           >
             <CgClose />
           </IconButton>
@@ -22,12 +34,12 @@ function DetailModal() {
         </div>
         <div className="bg-[#ffffff] w-1/2 h-[500px] rounded-r-3xl relative">
           <IconButton
-            classname="text-2xl absolute top-5 right-5"
+            classname="absolute text-2xl top-5 right-5"
             iconType="button"
           >
             <FiMoreVertical />
           </IconButton>
-          <div className="flex items-center justify-start mb-10 px-10 pt-10">
+          <div className="flex items-center justify-start px-10 pt-10 mb-10">
             <img
               src={contents[2].avatar}
               className="object-cover w-10 h-10 rounded-full"
@@ -41,10 +53,10 @@ function DetailModal() {
             이쁜지 모르겠네? 호호
           </p>
 
-          <p role="tags" className="text-sky-500 mb-10 px-10">
+          <p role="tags" className="px-10 mb-10 text-sky-500">
             #블레이저 #스키니진 #쇄골
           </p>
-          <div className="font-bold border-t pt-10 pb-5 px-10">착장정보</div>
+          <div className="px-10 pt-10 pb-5 font-bold border-t">착장정보</div>
           <p role="outfitInformationList" className="px-10">
             나이키 스포츠웨어 피닉스 플리스
             <span className="pl-3 text-slate-400">Size: M</span>

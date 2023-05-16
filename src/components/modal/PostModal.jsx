@@ -10,10 +10,10 @@ import TagInput from "../UI/TagInput";
 import InformationInput from "../UI/InformationInput";
 
 PostModal.propTypes = {
-  setModal: PropTypes.func,
+  setOpenPost: PropTypes.func,
 };
 
-function PostModal({ setModal }) {
+function PostModal({ setOpenPost }) {
   const btnClass = "w-24 py-1 hover:bg-black hover:text-white";
   const navigator = useNavigate();
 
@@ -25,7 +25,7 @@ function PostModal({ setModal }) {
 
   // 모달
   const modalCloseHandler = () => {
-    setModal(false);
+    setOpenPost(false);
   };
 
   // post 핸들러

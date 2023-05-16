@@ -6,9 +6,9 @@ import LogoImg from "../UI/LogoImg";
 import PostModal from "../modal/PostModal";
 
 function HeaderLayout() {
-  const [modal, setModal] = useState(false);
-  const modalHandler = () => {
-    setModal(true);
+  const [openPost, setOpenPost] = useState(false);
+  const openPostHandler = () => {
+    setOpenPost(true);
   };
   return (
     <div className="mt-2">
@@ -20,9 +20,9 @@ function HeaderLayout() {
           <BasicButton
             classname="h-10 mr-7"
             buttonText="NEW POST"
-            onClickFn={modalHandler}
+            onClickFn={openPostHandler}
           />
-          {modal && <PostModal setModal={setModal} />}
+          {openPost && <PostModal setOpenPost={setOpenPost} />}
         </div>
       </div>
     </div>
