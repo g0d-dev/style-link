@@ -7,9 +7,10 @@ import PropTypes from "prop-types";
 
 DetailModal.propTypes = {
   setOpenDetail: PropTypes.func,
+  id: PropTypes.number,
 };
 
-function DetailModal({ setOpenDetail }) {
+function DetailModal({ setOpenDetail, id }) {
   const modalCloseHandler = () => {
     setOpenDetail(false);
   };

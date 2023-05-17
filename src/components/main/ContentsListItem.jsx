@@ -21,7 +21,9 @@ function ContentsListItem({ person }) {
 
   return (
     <>
-      {openDetail && <DetailModal setOpenDetail={setOpenDetail} />}
+      {openDetail && (
+        <DetailModal setOpenDetail={setOpenDetail} id={person.id} />
+      )}
       <li className="flex flex-col px-4 basis-1/5">
         <button type="button" onClick={openDetailHandler}>
           <img src={person.image} alt="" className="object-cover rounded-lg" />

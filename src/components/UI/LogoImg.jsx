@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import logo from "../../assets/logo.svg";
 
 LogoImg.propTypes = {
-  imgSrc: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string,
   classname: PropTypes.string.isRequired,
 };
 
