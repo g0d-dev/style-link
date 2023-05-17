@@ -3,19 +3,17 @@ import { useNavigate } from "react-router-dom";
 import IconButton from "../UI/IconButton";
 import { BsImage } from "react-icons/bs";
 import { RxArrowRight, RxArrowLeft } from "react-icons/rx";
-import { FiPlus } from "react-icons/fi";
 import TextAreaInput from "../UI/TextAreaInput";
-import BasicInput from "../UI/BasicInput";
 import BasicButton from "../UI/BasicButton";
 import PropTypes from "prop-types";
 import TagInput from "../UI/TagInput";
-// import TagInput from "../UI/TagInput";
+import InformationInput from "../UI/InformationInput";
 
 PostModal.propTypes = {
-  setModal: PropTypes.func,
+  setOpenPost: PropTypes.func,
 };
 
-function PostModal({ setModal }) {
+function PostModal({ setOpenPost }) {
   const btnClass = "w-24 py-1 hover:bg-black hover:text-white";
   const navigator = useNavigate();
 
@@ -27,7 +25,7 @@ function PostModal({ setModal }) {
 
   // 모달
   const modalCloseHandler = () => {
-    setModal(false);
+    setOpenPost(false);
   };
 
   // post 핸들러
@@ -36,33 +34,10 @@ function PostModal({ setModal }) {
     navigator("/main");
   };
 
-  // 인풋 추가 핸들러
-  const onAddedHandler = (e) => {
-    navigator("/");
-  };
-
   // textarea 인풋
   const [textInputValue, setTextInputValue] = useState("");
   const onTextAreaChangeHandler = (e) => {
     setTextInputValue(e.target.value);
-  };
-
-  // 링크 인풋
-  const [linkValue, setLinkValue] = useState("");
-  const onChangeLinkHandler = (e) => {
-    setLinkValue(e.target.value);
-  };
-
-  // 프로덕트 인풋
-  const [productValue, setProductValue] = useState("");
-  const onChangeProductHandler = (e) => {
-    setProductValue(e.target.value);
-  };
-
-  // 사이즈 인풋
-  const [sizeValue, setSizeValue] = useState("");
-  const onChangeSizeHandler = (e) => {
-    setSizeValue(e.target.value);
   };
 
   // 이미지 업로드
@@ -176,7 +151,7 @@ function PostModal({ setModal }) {
             <form className="flex flex-col" onSubmit={onSubmitHandler}>
               <div className="flex flex-col">
                 <label
-                  htmlFor="infos"
+                  htmlFor="infoLink"
                   className="text-lg font-light pt-[30px] pb-[10px]"
                 >
                   Informations.
@@ -185,36 +160,7 @@ function PostModal({ setModal }) {
                   착용한 상품의 [구입 링크 / 상품명 / 구매 사이즈]를 공유할 수
                   있습니다
                 </p>
-                <div className="relative flex items-center justify-between w-full">
-                  <BasicInput
-                    inputId="infos"
-                    placeHolderText="Link..."
-                    inputValue={linkValue}
-                    onChangeHandler={onChangeLinkHandler}
-                    classname="mr-1 grow"
-                  />
-                  <BasicInput
-                    inputId="info"
-                    placeHolderText="Product..."
-                    inputValue={productValue}
-                    onChangeHandler={onChangeProductHandler}
-                    classname="mr-1"
-                  />
-                  <BasicInput
-                    inputId="info"
-                    placeHolderText="Size..."
-                    inputValue={sizeValue}
-                    onChangeHandler={onChangeSizeHandler}
-                    classname="mr-1"
-                  />
-                  <IconButton
-                    onClickFn={onAddedHandler}
-                    iconType="button"
-                    classname=""
-                  >
-                    <FiPlus className="text-2xl" />
-                  </IconButton>
-                </div>
+                <InformationInput />
               </div>
               <div className="pt-[30px] mx-auto">
                 <BasicButton
