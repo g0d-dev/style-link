@@ -4,15 +4,20 @@ import BasicButton from "../UI/BasicButton";
 import ContentsListItem from "./ContentsListItem";
 
 function ContentsList() {
-  const [isFilterNewed, setIsFilterNewed] = useState(false);
+  const [contentList, setContentList] = useState(contents);
+
   const filterNewedHandler = () => {
-    setIsFilterNewed(!isFilterNewed);
-    console.log(`최신순: ${isFilterNewed}`);
+    const newedContent = [...contentList].sort(
+      (a, b) => b.createdAt - a.createdAt
+    );
+    setContentList(newedContent);
   };
-  const [isFilterLiked, setIsFilterLiked] = useState(false);
+
   const filterLikedHandler = () => {
-    setIsFilterLiked(!isFilterLiked);
-    console.log(`좋아요순: ${isFilterLiked}`);
+    const likedContent = [...contentList].sort(
+      (a, b) => b.likedCount - a.likedCount
+    );
+    setContentList(likedContent);
   };
 
   const classname =
@@ -22,11 +27,13 @@ function ContentsList() {
       id: 1,
       classname,
       filterText: "최신순",
+      onClickFn: filterNewedHandler,
     },
     {
       id: 2,
       classname,
       filterText: "좋아요순",
+      onClickFn: filterLikedHandler,
     },
   ];
   return (
@@ -38,28 +45,15 @@ function ContentsList() {
               key={btn.id}
               classname={btn.classname}
               buttonText={btn.filterText}
-              onClickFn={
-                btn.filterText === "최신순" && !isFilterLiked
-                  ? filterNewedHandler
-                  : filterLikedHandler
-              }
+              onClickFn={btn.onClickFn}
             />
           );
         })}
       </div>
       <ul className="flex flex-wrap px-10 py-10">
-        {!isFilterNewed
-          ? contents
-              .filter((item) => item.id)
-              .reverse()
-              .map((person) => (
-                <ContentsListItem key={person.id} person={person} />
-              ))
-          : contents
-              .filter((item) => item.likedCount >= 0)
-              .map((person) => (
-                <ContentsListItem key={person.id} person={person} />
-              ))}
+        {contentList.map((person) => {
+          return <ContentsListItem key={person.id} person={person} />;
+        })}
       </ul>
     </>
   );

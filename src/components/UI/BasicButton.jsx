@@ -5,7 +5,7 @@ BasicButton.propTypes = {
   buttonText: PropTypes.string.isRequired,
   classname: PropTypes.string.isRequired,
   onClickFn: PropTypes.func.isRequired,
-  btnType: PropTypes.string.isRequired,
+  btnType: PropTypes.string,
 };
 
 function BasicButton({ buttonText, classname, onClickFn, btnType }) {
