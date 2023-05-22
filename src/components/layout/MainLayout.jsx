@@ -4,10 +4,10 @@ import HeaderLayout from "./HeaderLayout";
 
 function MainLayout() {
   return (
-    <>
+    <div>
       <HeaderLayout />
       <Outlet />
-    </>
+    </div>
   );
 }
 

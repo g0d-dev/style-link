@@ -37,7 +37,7 @@ function ContentsList() {
     },
   ];
   return (
-    <>
+    <div className="pt-28">
       <div className="ml-10">
         {listItemFilter.map((btn) => {
           return (
@@ -55,7 +55,7 @@ function ContentsList() {
           return <ContentsListItem key={person.id} person={person} />;
         })}
       </ul>
-    </>
+    </div>
   );
 }
 

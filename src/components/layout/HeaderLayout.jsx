@@ -11,19 +11,17 @@ function HeaderLayout() {
     setOpenPost(true);
   };
   return (
-    <div className="mt-2">
+    <div className="fixed w-full py-2 bg-white">
       <AuthBtnContainer />
       <div className="flex items-center">
         <LogoImg />
-        <div className="flex justify-between w-full">
-          <SearchBar />
-          <BasicButton
-            classname="h-10 mr-7"
-            buttonText="NEW POST"
-            onClickFn={openPostHandler}
-          />
-          {openPost && <PostModal setOpenPost={setOpenPost} />}
-        </div>
+        <SearchBar />
+        <BasicButton
+          classname="h-10 mr-7 w-52"
+          buttonText="NEW POST"
+          onClickFn={openPostHandler}
+        />
+        {openPost && <PostModal setOpenPost={setOpenPost} />}
       </div>
     </div>
   );
