@@ -5,7 +5,7 @@ import logo from "../../assets/logo.svg";
 
 LogoImg.propTypes = {
   imgSrc: PropTypes.string,
-  classname: PropTypes.string.isRequired,
+  classname: PropTypes.string,
 };
 
 function LogoImg({ classname }) {

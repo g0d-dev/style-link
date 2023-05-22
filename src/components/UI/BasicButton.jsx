@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 BasicButton.propTypes = {
-  buttonText: PropTypes.string.isRequired,
-  classname: PropTypes.string.isRequired,
-  onClickFn: PropTypes.func.isRequired,
+  buttonText: PropTypes.string,
+  classname: PropTypes.string,
+  onClickFn: PropTypes.func,
   btnType: PropTypes.string,
 };
 

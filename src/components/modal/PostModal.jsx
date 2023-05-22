@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import IconButton from "../UI/IconButton";
 import { BsImage } from "react-icons/bs";
 import { RxArrowRight, RxArrowLeft } from "react-icons/rx";
@@ -8,6 +7,7 @@ import BasicButton from "../UI/BasicButton";
 import PropTypes from "prop-types";
 import TagInput from "../UI/TagInput";
 import InformationInput from "../UI/InformationInput";
+// import axios from "axios";
 
 PostModal.propTypes = {
   setOpenPost: PropTypes.func,
@@ -15,7 +15,6 @@ PostModal.propTypes = {
 
 function PostModal({ setOpenPost }) {
   const btnClass = "w-24 py-1 hover:bg-black hover:text-white";
-  const navigator = useNavigate();
 
   // 페이지네이션
   const [changePage, setChangePage] = useState(false);
@@ -23,15 +22,14 @@ function PostModal({ setOpenPost }) {
     setChangePage(!changePage);
   };
 
+  // post submit 핸들러
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+  };
+
   // 모달
   const modalCloseHandler = () => {
     setOpenPost(false);
-  };
-
-  // post 핸들러
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-    navigator("/main");
   };
 
   // textarea 인풋
@@ -96,7 +94,7 @@ function PostModal({ setOpenPost }) {
 
         {!changePage ? (
           <div className="w-1/2 px-[6.25rem] bg-white h-full rounded-r-3xl relative">
-            <div className="flex flex-col">
+            <form className="relative flex flex-col" onSubmit={onSubmitHandler}>
               <div className="flex flex-col">
                 <label
                   htmlFor="contents"
@@ -112,23 +110,19 @@ function PostModal({ setOpenPost }) {
                   classname="pb-40"
                 />
               </div>
-              <form
-                className="relative flex flex-col"
-                onSubmit={onSubmitHandler}
+              <label
+                htmlFor="tags"
+                className="text-lg font-light pt-[30px] pb-[10px]"
               >
-                <label
-                  htmlFor="tags"
-                  className="text-lg font-light pt-[30px] pb-[10px]"
-                >
-                  Tags.
-                </label>
-                <TagInput />
-              </form>
+                Tags.
+              </label>
+              <TagInput />
               <div className="pt-[30px] mx-auto">
                 <BasicButton
                   buttonText="POST"
-                  btnType="submit"
+                  btnType="button"
                   classname={`${btnClass} mr-[10px] border-opacity-100 w-24 py-1`}
+                  onClickFn={modalCloseHandler}
                 />
                 <BasicButton
                   buttonText="CANCEL"
@@ -137,7 +131,8 @@ function PostModal({ setOpenPost }) {
                   onClickFn={modalCloseHandler}
                 />
               </div>
-            </div>
+            </form>
+
             <IconButton
               onClickFn={onChangePageHandler}
               iconType="button"
@@ -165,8 +160,9 @@ function PostModal({ setOpenPost }) {
               <div className="pt-[30px] mx-auto">
                 <BasicButton
                   buttonText="POST"
-                  btnType="submit"
+                  btnType="button"
                   classname={`${btnClass} mr-[10px] border-opacity-100 w-24 py-1`}
+                  onClickFn={modalCloseHandler}
                 />
                 <BasicButton
                   buttonText="CANCEL"
@@ -176,6 +172,7 @@ function PostModal({ setOpenPost }) {
                 />
               </div>
             </form>
+
             <IconButton
               onClickFn={onChangePageHandler}
               iconType="button"
