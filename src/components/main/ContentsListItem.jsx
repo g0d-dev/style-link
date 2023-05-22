@@ -9,12 +9,18 @@ ContentsListItem.propTypes = {
 };
 
 function ContentsListItem({ person }) {
+  const [plusLikedCount, setPlusLikedCount] = useState(person.likedCount);
+
   const [isLiked, setIsLiked] = useState(person.isLiked);
+
   const likeToggleHandler = () => {
     setIsLiked(!isLiked);
+    if (!isLiked) return setPlusLikedCount(plusLikedCount + 1);
+    if (isLiked) return setPlusLikedCount(plusLikedCount - 1);
   };
 
   const [openDetail, setOpenDetail] = useState(false);
+
   const openDetailHandler = () => {
     setOpenDetail(true);
   };
@@ -47,7 +53,7 @@ function ContentsListItem({ person }) {
             >
               {isLiked ? <BsSuitHeartFill /> : <BsSuitHeart />}
             </IconButton>
-            <span>{isLiked ? 1 : 0}</span>
+            <span>{plusLikedCount}</span>
           </div>
         </div>
         <div className="pt-[10px]">{person.tags}</div>

@@ -4,24 +4,28 @@ import BasicButton from "../UI/BasicButton";
 import ContentsListItem from "./ContentsListItem";
 
 function ContentsList() {
-  const [contentList, setContentList] = useState(contents);
+  const initialContents = [...contents].sort(
+    (a, b) => b.createdAt - a.createdAt
+  );
+  const [contentList, setContentList] = useState(initialContents);
 
   const filterNewedHandler = () => {
-    const newedContent = [...contentList].sort(
+    const newedContents = [...contentList].sort(
       (a, b) => b.createdAt - a.createdAt
     );
-    setContentList(newedContent);
+    setContentList(newedContents);
   };
 
   const filterLikedHandler = () => {
-    const likedContent = [...contentList].sort(
+    const likedContents = [...contentList].sort(
       (a, b) => b.likedCount - a.likedCount
     );
-    setContentList(likedContent);
+    setContentList(likedContents);
   };
 
   const classname =
     "px-2 border-none hover:underline hover:text-slate-800 text-slate-500";
+
   const listItemFilter = [
     {
       id: 1,

@@ -303,7 +303,7 @@ const contents = [
     id: 16,
     image:
       "https://images.unsplash.com/photo-1551383136-8662bbfaf273?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjQzfHxvb3RkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    displayName: "지드래곤",
+    displayName: "주언규",
     isLiked: false,
     likedCount: 325,
     createdAt: 20220212,
@@ -345,12 +345,372 @@ const contents = [
       "https://images.unsplash.com/photo-1603449133876-211a797b2ad5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzA1fHxvb3RkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
     displayName: "이동욱",
     isLiked: true,
-    likedCount: 333,
+    likedCount: 192,
     createdAt: 20230401,
     avatar:
       "https://images.unsplash.com/photo-1570178484325-9d73fbaf04f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzA0fHxvb3RkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
     tags: ["#드레드", "#스키니진", "#남자들이좋아하는"],
     contents: "안녕하세요 호호 저는 이동욱입니다~",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 19,
+    image:
+      "https://plus.unsplash.com/premium_photo-1664442593274-38caa77af985?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8WiVFQyU4NCVCOCVFQiU4QyU4MHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "강병휘",
+    isLiked: false,
+    likedCount: 58,
+    createdAt: 20230110,
+    avatar:
+      "https://plus.unsplash.com/premium_photo-1664442593274-38caa77af985?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8WiVFQyU4NCVCOCVFQiU4QyU4MHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#블레이저", "#탱크탑"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 20,
+    image:
+      "https://images.unsplash.com/photo-1613053341085-db794820ce43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8WiVFQyU4NCVCOCVFQiU4QyU4MHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "카리나",
+    isLiked: true,
+    likedCount: 39,
+    createdAt: 20230112,
+    avatar:
+      "https://images.unsplash.com/photo-1579493934830-eab45746b51b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8WiVFQyU4NCVCOCVFQiU4QyU4MHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#첼시부츠", "#슬랙스", "#트렌치코트"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 21,
+    image:
+      "https://images.unsplash.com/photo-1622236297949-eb7f7aa3a3cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+    displayName: "안소희",
+    isLiked: false,
+    likedCount: 23,
+    createdAt: 20230113,
+    avatar:
+      "https://images.unsplash.com/photo-1629238416320-36597a283c2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+    tags: ["#트러커자켓", "#프린팅티셔츠"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 22,
+    image:
+      "https://images.unsplash.com/photo-1599069446175-e8ee7e59fe79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "윤태진",
+    isLiked: false,
+    likedCount: 53,
+    createdAt: 20230115,
+    avatar:
+      "https://images.unsplash.com/photo-1624911104820-5316c700b907?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#셔츠", "#스웨터"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 23,
+    image:
+      "https://images.unsplash.com/photo-1634748210255-af588c16652a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "강예슬",
+    isLiked: false,
+    likedCount: 12,
+    createdAt: 20230123,
+    avatar:
+      "https://images.unsplash.com/photo-1632765937900-a3bbbfa58d46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#ootd", "#캐주얼", "#플랫슈즈"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 24,
+    image:
+      "https://images.unsplash.com/photo-1613053342692-d0012e0444eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "김나영",
+    isLiked: true,
+    likedCount: 23,
+    createdAt: 20230220,
+    avatar:
+      "https://images.unsplash.com/photo-1641951820852-20fcd532e205?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#나이키", "#런닝복"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 25,
+    image:
+      "https://images.unsplash.com/photo-1571868200845-4fe0659ffd61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "조우진",
+    isLiked: false,
+    likedCount: 19,
+    createdAt: 20230321,
+    avatar:
+      "https://images.unsplash.com/photo-1571863393474-b94c72f117fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#셔츠", "#여자들이좋아하는"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 26,
+    image:
+      "https://images.unsplash.com/photo-1643915542649-6f1ae23eb8fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "카더가든",
+    isLiked: true,
+    likedCount: 10,
+    createdAt: 20230322,
+    avatar:
+      "https://images.unsplash.com/photo-1613498382159-0972b7b4c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#와이드팬츠", "#팔찌"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 27,
+    image:
+      "https://images.unsplash.com/photo-1643915541770-9c3a468593b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "비비",
+    isLiked: false,
+    likedCount: 7,
+    createdAt: 20230410,
+    avatar:
+      "https://images.unsplash.com/photo-1589742090907-b64224d1a7e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#블랙코트", "#올블랙", "#비니"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 28,
+    image:
+      "https://images.unsplash.com/photo-1629238459078-4f9a0b911174?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "조승연",
+    isLiked: false,
+    likedCount: 4,
+    createdAt: 20230512,
+    avatar:
+      "https://images.unsplash.com/photo-1642097996214-1254f4b9f79e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#데님자켓", "#분위기"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 29,
+    image:
+      "https://images.unsplash.com/photo-1633703920940-9690b3be2a29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "박종훈",
+    isLiked: false,
+    likedCount: 43,
+    createdAt: 20220112,
+    avatar:
+      "https://images.unsplash.com/photo-1612825738704-b6f807796eff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#동탄미시룩", "#원피스", "#맥시원피스"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 30,
+    image:
+      "https://images.unsplash.com/photo-1621871684011-98faa71464b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjF8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "강지영",
+    isLiked: true,
+    likedCount: 92,
+    createdAt: 20220112,
+    avatar:
+      "https://images.unsplash.com/photo-1632765929485-15b5c2f11f33?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjJ8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#이지부스트", "#아디다스"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 31,
+    image:
+      "https://images.unsplash.com/photo-1610738572401-5dfeeb660c7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njd8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "백종원",
+    isLiked: false,
+    likedCount: 58,
+    createdAt: 20220229,
+    avatar:
+      "https://images.unsplash.com/photo-1599069464936-aa9b32d9e9c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzN8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#남자캐주얼", "#볼캡", "#티셔츠"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 32,
+    image:
+      "https://images.unsplash.com/photo-1624910996561-daeb5bd84fc0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODJ8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "이승기",
+    isLiked: true,
+    likedCount: 102,
+    createdAt: 20230517,
+    avatar:
+      "https://images.unsplash.com/photo-1631731194068-82d8e4c5f194?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTd8fFolRUMlODQlQjglRUIlOEMlODB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#아메카지", "#캐주얼", "#간지남"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 33,
+    image:
+      "https://images.unsplash.com/photo-1573204263181-41b87df58a46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA2fHxaJUVDJTg0JUI4JUVCJThDJTgwfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    displayName: "정우성",
+    isLiked: false,
+    likedCount: 134,
+    createdAt: 20230514,
+    avatar:
+      "https://plus.unsplash.com/premium_photo-1669704099171-b47c80016430?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMyfHxaJUVDJTg0JUI4JUVCJThDJTgwfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    tags: ["#미니멀", "#체크셔츠"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 34,
+    image:
+      "https://images.unsplash.com/photo-1604170439121-1d682f2968ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM3fHxaJUVDJTg0JUI4JUVCJThDJTgwfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    displayName: "지드래곤",
+    isLiked: false,
+    likedCount: 23478,
+    createdAt: 20220212,
+    avatar:
+      "https://images.unsplash.com/photo-1612280073271-f9f202443b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM5fHxaJUVDJTg0JUI4JUVCJThDJTgwfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    tags: ["#첫눈", "#방울모자"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 35,
+    image:
+      "https://images.unsplash.com/photo-1597320307995-f961004a5fed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUzfHxaJUVDJTg0JUI4JUVCJThDJTgwfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    displayName: "장원영",
+    isLiked: false,
+    likedCount: 3,
+    createdAt: 20230301,
+    avatar:
+      "https://images.unsplash.com/photo-1556906781-9a412961c28c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bmlrZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#픽시", "#캐주얼", "#반스"],
+    contents: "",
+    spec: [
+      {
+        height: 188,
+        weight: 75,
+        shoeSize: 270,
+      },
+    ],
+  },
+  {
+    id: 36,
+    image:
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGZhc2hpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    displayName: "이해인",
+    isLiked: true,
+    likedCount: 120,
+    createdAt: 20230401,
+    avatar:
+      "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGZhc2hpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    tags: ["#드레드", "#스키니진", "#남자들이좋아하는"],
+    contents: "",
     spec: [
       {
         height: 188,
