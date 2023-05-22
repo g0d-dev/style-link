@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 TextAreaInput.propTypes = {
-  placeHolderText: PropTypes.string.isRequired,
-  textInputValue: PropTypes.string.isRequired,
-  onTextAreaChangeHandler: PropTypes.func.isRequired,
-  classname: PropTypes.string.isRequired,
-  inputId: PropTypes.string.isRequired,
+  placeHolderText: PropTypes.string,
+  textInputValue: PropTypes.string,
+  onTextAreaChangeHandler: PropTypes.func,
+  classname: PropTypes.string,
+  inputId: PropTypes.string,
 };
 
 function TextAreaInput({

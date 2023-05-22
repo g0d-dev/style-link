@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 ResizeImg.propTypes = {
-  imgSrc: PropTypes.string.isRequired,
-  classname: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string,
+  classname: PropTypes.string,
 };
 
 function ResizeImg({ imgSrc, classname }) {

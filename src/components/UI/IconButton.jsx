@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 
 IconButton.propTypes = {
-  children: PropTypes.node.isRequired,
-  classname: PropTypes.string.isRequired,
-  onClickFn: PropTypes.func.isRequired,
-  iconType: PropTypes.string.isRequired,
+  children: PropTypes.node,
+  classname: PropTypes.string,
+  onClickFn: PropTypes.func,
+  iconType: PropTypes.string,
 };
 
 function IconButton({ children, classname, onClickFn, iconType }) {

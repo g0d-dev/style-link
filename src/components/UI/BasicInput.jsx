@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 BasicInput.propTypes = {
-  placeHolderText: PropTypes.string.isRequired,
-  inputValue: PropTypes.string.isRequired,
-  onChangeHandler: PropTypes.func.isRequired,
-  classname: PropTypes.string.isRequired,
-  inputId: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  placeHolderText: PropTypes.string,
+  inputValue: PropTypes.string,
+  onChangeHandler: PropTypes.func,
+  classname: PropTypes.string,
+  inputId: PropTypes.string,
+  name: PropTypes.string,
 };
 function BasicInput({
   name,
