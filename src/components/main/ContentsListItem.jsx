@@ -5,7 +5,7 @@ import IconButton from "../UI/IconButton";
 import { BsSuitHeartFill, BsSuitHeart } from "react-icons/bs";
 
 ContentsListItem.propTypes = {
-  person: PropTypes.array,
+  person: PropTypes.object,
 };
 
 function ContentsListItem({ person }) {
