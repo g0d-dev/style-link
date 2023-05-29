@@ -1,5 +1,5 @@
 import React from "react";
-import { contents } from "../../mocks/contentsData";
+// import { contents } from "../../mocks/contentsData";
 import { CgClose } from "react-icons/cg";
 import IconButton from "../UI/IconButton";
 import { FiMoreVertical } from "react-icons/fi";
@@ -8,12 +8,20 @@ import PropTypes from "prop-types";
 DetailModal.propTypes = {
   setOpenDetail: PropTypes.func,
   id: PropTypes.number,
+  person: PropTypes.object,
 };
 
-function DetailModal({ setOpenDetail, id }) {
+function DetailModal({ setOpenDetail, id, person }) {
   const modalCloseHandler = () => {
     setOpenDetail(false);
   };
+
+  const onEscapeHandler = (e) => {
+    if (e.keyCode === 27) {
+      setOpenDetail(false);
+    }
+  };
+
   return (
     <div
       role="bg"
@@ -25,13 +33,11 @@ function DetailModal({ setOpenDetail, id }) {
             classname="absolute text-2xl top-5 left-5"
             iconType="button"
             onClickFn={modalCloseHandler}
+            onKeyDown={onEscapeHandler}
           >
             <CgClose />
           </IconButton>
-          <img
-            src={contents[0].image}
-            className="object-scale-down w-full h-full"
-          />
+          <img src={person.image} className="object-scale-down w-full h-full" />
         </div>
         <div className="bg-[#ffffff] w-1/2 h-[500px] rounded-r-3xl relative">
           <IconButton
@@ -42,20 +48,19 @@ function DetailModal({ setOpenDetail, id }) {
           </IconButton>
           <div className="flex items-center justify-start px-10 pt-10 mb-10">
             <img
-              src={contents[2].avatar}
+              src={person.avatar}
               className="object-cover w-10 h-10 rounded-full"
             />
             <p className="text-sm font-medium text-gray-900 pl-[10px]">
-              {contents[0].displayName}
+              {person.displayName}
             </p>
           </div>
           <p role="contents" className="w-[500px] mb-10 px-10">
-            스키니진 유행이 돌아온다길래 입어봤어요 호호 내 쇄골은 또 왜 이렇게
-            이쁜지 모르겠네? 호호
+            {person.contents}
           </p>
 
           <p role="tags" className="px-10 mb-10 text-sky-500">
-            #블레이저 #스키니진 #쇄골
+            {person.tags}
           </p>
           <div className="px-10 pt-10 pb-5 font-bold border-t">착장정보</div>
           <p role="outfitInformationList" className="px-10">
