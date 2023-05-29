@@ -34,7 +34,7 @@ function EditModal({ setOpenPost }) {
   };
 
   // textarea 인풋
-  const [textInputValue, setTextInputValue] = useState("");
+  const [textInputValue, setTextInputValue] = useState(contents[2].contents);
   const onTextAreaChangeHandler = (e) => {
     setTextInputValue(e.target.value);
   };
