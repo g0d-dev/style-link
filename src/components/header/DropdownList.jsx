@@ -1,13 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import DropdownListItem from "./DropdownListItem";
-import escapeKeyDown from "../../util/escapeKeyDown";
 
 DropdownList.propTypes = {
   searchResult: PropTypes.array,
 };
-
-escapeKeyDown();
 
 function DropdownList({ searchResult }) {
   return (

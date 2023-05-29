@@ -1,26 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { contents } from "../../mocks/contentsData";
 import { CgClose } from "react-icons/cg";
 import IconButton from "../UI/IconButton";
 import { FiMoreVertical } from "react-icons/fi";
 import PropTypes from "prop-types";
+// import escapeKeyDown from "../../util/escapeKeyDown";
 
 DetailModal.propTypes = {
   setOpenDetail: PropTypes.func,
   id: PropTypes.number,
   person: PropTypes.object,
+  openDetail: PropTypes.bool,
 };
 
-function DetailModal({ setOpenDetail, id, person }) {
+function DetailModal({ setOpenDetail, id, person, openDetail }) {
   const modalCloseHandler = () => {
     setOpenDetail(false);
   };
 
-  const onEscapeHandler = (e) => {
-    if (e.keyCode === 27) {
-      setOpenDetail(false);
-    }
-  };
+  // useEffect(() => {
+  //   if (openDetail) escapeKeyDown(setOpenDetail, !openDetail);
+  // }, [setOpenDetail, openDetail]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setOpenDetail(false);
+        console.log("a");
+      }
+    };
+
+    // 컴포넌트가 마운트되면 이벤트 핸들러를 등록합니다.
+    document.addEventListener("keydown", handleKeyDown);
+
+    // 컴포넌트가 언마운트되면 이벤트 핸들러를 제거합니다.
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [setOpenDetail]);
 
   return (
     <div
@@ -33,7 +50,6 @@ function DetailModal({ setOpenDetail, id, person }) {
             classname="absolute text-2xl top-5 left-5"
             iconType="button"
             onClickFn={modalCloseHandler}
-            onKeyDown={onEscapeHandler}
           >
             <CgClose />
           </IconButton>

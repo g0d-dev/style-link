@@ -1,7 +1,8 @@
-const escapeKeyDown = () => {
+const escapeKeyDown = (setFn, boolean) => {
   window.onkeydown = function (event) {
     if (event.key === "Escape") {
-      console.log("escape pressed");
+      console.log("a");
+      setFn(boolean);
     }
   };
 };

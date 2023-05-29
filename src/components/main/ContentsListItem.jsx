@@ -20,7 +20,7 @@ function ContentsListItem({ person }) {
   };
 
   const [openDetail, setOpenDetail] = useState(false);
-
+  console.log(openDetail);
   const openDetailHandler = () => {
     setOpenDetail(true);
   };
@@ -32,6 +32,7 @@ function ContentsListItem({ person }) {
           setOpenDetail={setOpenDetail}
           id={person.id}
           person={person}
+          openDetail={openDetail}
         />
       )}
       <li className="flex flex-col px-4 basis-1/5">
