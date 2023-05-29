@@ -662,7 +662,7 @@ const contents = [
   {
     id: 34,
     image:
-      "https://images.unsplash.com/photo-1604170439121-1d682f2968ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM3fHxaJUVDJTg0JUI4JUVCJThDJTgwfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      "https://blog.kakaocdn.net/dn/rWvCy/btqOP40QryW/aHEEU4HgodsfxptprGkS7k/img.jpg",
     displayName: "지드래곤",
     isLiked: false,
     likedCount: 23478,
@@ -670,7 +670,7 @@ const contents = [
     avatar:
       "https://images.unsplash.com/photo-1612280073271-f9f202443b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM5fHxaJUVDJTg0JUI4JUVCJThDJTgwfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
     tags: ["#첫눈", "#방울모자"],
-    contents: "",
+    contents: "게춰 크래용",
     spec: [
       {
         height: 188,

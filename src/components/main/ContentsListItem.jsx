@@ -28,7 +28,11 @@ function ContentsListItem({ person }) {
   return (
     <>
       {openDetail && (
-        <DetailModal setOpenDetail={setOpenDetail} id={person.id} />
+        <DetailModal
+          setOpenDetail={setOpenDetail}
+          id={person.id}
+          person={person}
+        />
       )}
       <li className="flex flex-col px-4 basis-1/5">
         <button type="button" onClick={openDetailHandler}>
