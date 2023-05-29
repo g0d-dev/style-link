@@ -20,7 +20,7 @@ function ContentsListItem({ person }) {
   };
 
   const [openDetail, setOpenDetail] = useState(false);
-  console.log(openDetail);
+
   const openDetailHandler = () => {
     setOpenDetail(true);
   };
