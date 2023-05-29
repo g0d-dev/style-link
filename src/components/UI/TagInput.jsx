@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import IconButton from "../UI/IconButton";
 import { CgClose } from "react-icons/cg";
+import { contents } from "../../mocks/contentsData";
 
 function TagInput() {
   const [tagItem, setTagItem] = useState("");
-  const [tagList, setTagList] = useState([]);
+  const [tagList, setTagList] = useState(contents[2].tags);
+  // const [tagList, setTagList] = useState([]);
 
   const addTagsHandler = (e) => {
     if (e.target.value.length < 9) setTagItem(e.target.value);

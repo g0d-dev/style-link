@@ -58,10 +58,10 @@ function ContentsListItem({ person }) {
             >
               {isLiked ? <BsSuitHeartFill /> : <BsSuitHeart />}
             </IconButton>
-            <span>{plusLikedCount}</span>
+            <span>{isLiked ? 1 : 0}</span>
           </div>
         </div>
-        <div className="pt-[10px]">{person.tags}</div>
+        <div className="pt-[10px]">{person.tags.map((el) => `#${el}`)}</div>
       </li>
     </>
   );

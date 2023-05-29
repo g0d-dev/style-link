@@ -2,17 +2,26 @@ import React, { useState, useRef } from "react";
 import BasicInput from "./BasicInput";
 import IconButton from "./IconButton";
 import { FiPlus, FiMinus } from "react-icons/fi";
+import { contents } from "../../mocks/contentsData";
 
 function InformationInput() {
   const countNum = useRef(1);
   const [inputList, setInputList] = useState([
     {
       num: 0,
-      links: "",
-      products: "",
-      size: "",
+      links: `${contents[2].information[0].link}`,
+      products: `${contents[2].information[0].product}`,
+      size: `${contents[2].information[0].size}`,
     },
   ]);
+  // const [inputList, setInputList] = useState([
+  //   {
+  //     num: 0,
+  //     links: "",
+  //     products: "",
+  //     size: "",
+  //   },
+  // ]);
 
   const inputChangeHandler = (e, idx) => {
     const { value, name } = e.target;
