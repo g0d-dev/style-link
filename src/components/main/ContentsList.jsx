@@ -7,13 +7,16 @@ function ContentsList() {
   const initialContents = [...contents].sort(
     (a, b) => b.createdAt - a.createdAt
   );
+
   const [contentList, setContentList] = useState(initialContents);
+  const [isSelectedFilter, setIsSelectedFilter] = useState([true, false]);
 
   const filterNewedHandler = () => {
     const newedContents = [...contentList].sort(
       (a, b) => b.createdAt - a.createdAt
     );
     setContentList(newedContents);
+    setIsSelectedFilter([true, false]);
   };
 
   const filterLikedHandler = () => {
@@ -21,21 +24,21 @@ function ContentsList() {
       (a, b) => b.likedCount - a.likedCount
     );
     setContentList(likedContents);
+    setIsSelectedFilter([false, true]);
   };
 
   const classname =
     "px-2 border-none hover:underline hover:text-slate-800 text-slate-500";
+  const selectedClassname = `text-slate-800 font-extrabold ${classname}`;
 
   const listItemFilter = [
     {
       id: 1,
-      classname,
       filterText: "최신순",
       onClickFn: filterNewedHandler,
     },
     {
       id: 2,
-      classname,
       filterText: "좋아요순",
       onClickFn: filterLikedHandler,
     },
@@ -44,11 +47,11 @@ function ContentsList() {
   return (
     <div className="pt-28">
       <div className="ml-10">
-        {listItemFilter.map((btn) => {
+        {listItemFilter.map((btn, idx) => {
           return (
             <BasicButton
               key={btn.id}
-              classname={btn.classname}
+              classname={isSelectedFilter[idx] ? selectedClassname : classname}
               buttonText={btn.filterText}
               onClickFn={btn.onClickFn}
             />

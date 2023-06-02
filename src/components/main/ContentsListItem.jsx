@@ -35,7 +35,7 @@ function ContentsListItem({ person }) {
           openDetail={openDetail}
         />
       )}
-      <li className="flex flex-col px-4 basis-1/5">
+      <li className="flex flex-col px-4 mb-10 basis-1/5">
         <button type="button" onClick={openDetailHandler}>
           <img src={person.image} alt="" className="object-cover rounded-lg" />
         </button>
@@ -58,7 +58,7 @@ function ContentsListItem({ person }) {
             >
               {isLiked ? <BsSuitHeartFill /> : <BsSuitHeart />}
             </IconButton>
-            <span>{isLiked ? 1 : 0}</span>
+            <span>{plusLikedCount}</span>
           </div>
         </div>
         <div className="pt-[10px]">{person.tags.map((el) => `#${el}`)}</div>
