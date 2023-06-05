@@ -21,7 +21,9 @@ function HeaderLayout() {
           buttonText="NEW POST"
           onClickFn={openPostHandler}
         />
-        {openPost && <PostModal setOpenPost={setOpenPost} />}
+        {openPost && (
+          <PostModal setOpenPost={setOpenPost} openPost={openPost} />
+        )}
       </div>
     </div>
   );

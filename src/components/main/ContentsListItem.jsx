@@ -36,7 +36,7 @@ function ContentsListItem({ person, classname }) {
           openDetail={openDetail}
         />
       )}
-      <li className="flex flex-col px-4 mb-10 basis-1/5">
+      <li className="flex flex-col col-start-auto px-4 basis-1/5">
         <button type="button" onClick={openDetailHandler}>
           <img src={person.image} alt="" className="object-cover rounded-lg" />
         </button>

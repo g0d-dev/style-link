@@ -7,14 +7,14 @@ import BasicButton from "../UI/BasicButton";
 import PropTypes from "prop-types";
 import TagInput from "../UI/TagInput";
 import InformationInput from "../UI/InformationInput";
-import { contents } from "../../mocks/contentsData";
-// import axios from "axios";
 
 EditModal.propTypes = {
-  setOpenPost: PropTypes.func,
+  setOpenEdit: PropTypes.func,
+  person: PropTypes.object,
+  openEdit: PropTypes.bool,
 };
 
-function EditModal({ setOpenPost }) {
+function EditModal({ setOpenEdit, openEdit, person }) {
   const btnClass = "w-24 py-1 hover:bg-black hover:text-white";
 
   // 페이지네이션
@@ -26,21 +26,22 @@ function EditModal({ setOpenPost }) {
   // post submit 핸들러
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    setOpenEdit(false);
   };
 
   // 모달
   const modalCloseHandler = () => {
-    setOpenPost(false);
+    setOpenEdit(false);
   };
 
   // textarea 인풋
-  const [textInputValue, setTextInputValue] = useState(contents[2].contents);
+  const [textInputValue, setTextInputValue] = useState(person.contents);
   const onTextAreaChangeHandler = (e) => {
     setTextInputValue(e.target.value);
   };
 
   // 이미지 업로드
-  const [imageFile, setImageFile] = useState(contents[2].image);
+  const [imageFile, setImageFile] = useState(person.image);
   const imageRef = useRef();
   const imagePreviewHandler = () => {
     const file = imageRef.current.files[0];
@@ -55,8 +56,8 @@ function EditModal({ setOpenPost }) {
   };
 
   return (
-    <div className="fixed w-full h-full -translate-x-1/2 -translate-y-1/2 bg-black top-1/2 left-1/2 bg-opacity-80">
-      <div className="fixed z-10 flex items-center justify-center w-full px-10 -translate-x-1/2 -translate-y-1/2 h-1/2 top-1/2 left-1/2">
+    <>
+      <div className="flex items-center justify-center w-full h-[500px] fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20 px-10 rounded-l-3xl">
         {imageFile ? (
           <label
             htmlFor="uploadImage"
@@ -117,11 +118,11 @@ function EditModal({ setOpenPost }) {
               >
                 Tags.
               </label>
-              <TagInput />
+              <TagInput person={person} openEdit={openEdit} />
               <div className="pt-[30px] mx-auto">
                 <BasicButton
-                  buttonText="POST"
-                  btnType="button"
+                  buttonText="EDIT"
+                  btnType="submit"
                   classname={`${btnClass} mr-[10px] border-opacity-100 w-24 py-1`}
                   onClickFn={modalCloseHandler}
                 />
@@ -156,12 +157,12 @@ function EditModal({ setOpenPost }) {
                   착용한 상품의 [구입 링크 / 상품명 / 구매 사이즈]를 공유할 수
                   있습니다
                 </p>
-                <InformationInput />
+                <InformationInput person={person} />
               </div>
               <div className="pt-[30px] mx-auto">
                 <BasicButton
-                  buttonText="POST"
-                  btnType="button"
+                  buttonText="EDIT"
+                  btnType="submit"
                   classname={`${btnClass} mr-[10px] border-opacity-100 w-24 py-1`}
                   onClickFn={modalCloseHandler}
                 />
@@ -184,7 +185,7 @@ function EditModal({ setOpenPost }) {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }
 

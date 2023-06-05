@@ -70,6 +70,8 @@ export const handlers = [
 
     const newData = Object.assign({}, data, reqData);
     contents.push(newData);
+    console.log(newData);
+    console.log(contents);
     return res(ctx.status(201), ctx.json(newData));
   }),
 

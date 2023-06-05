@@ -2,26 +2,15 @@ import React, { useState, useRef } from "react";
 import BasicInput from "./BasicInput";
 import IconButton from "./IconButton";
 import { FiPlus, FiMinus } from "react-icons/fi";
-import { contents } from "../../mocks/contentsData";
+import PropTypes from "prop-types";
 
-function InformationInput() {
+InformationInput.propTypes = {
+  person: PropTypes.object,
+};
+
+function InformationInput({ person }) {
   const countNum = useRef(1);
-  const [inputList, setInputList] = useState([
-    {
-      num: 0,
-      links: `${contents[2].information[0].link}`,
-      products: `${contents[2].information[0].product}`,
-      size: `${contents[2].information[0].size}`,
-    },
-  ]);
-  // const [inputList, setInputList] = useState([
-  //   {
-  //     num: 0,
-  //     links: "",
-  //     products: "",
-  //     size: "",
-  //   },
-  // ]);
+  const [inputList, setInputList] = useState(person?.information || [{}]);
 
   const inputChangeHandler = (e, idx) => {
     const { value, name } = e.target;
@@ -61,7 +50,7 @@ function InformationInput() {
               name="links"
               inputId="infoLink"
               placeHolderText="Link..."
-              inputValue={item.links}
+              inputValue={item.link}
               onChangeHandler={(e) => inputChangeHandler(e, idx)}
               classname="mr-1 grow"
             />
@@ -69,7 +58,7 @@ function InformationInput() {
               name="products"
               inputId="infoProduct"
               placeHolderText="Product..."
-              inputValue={item.products}
+              inputValue={item.product}
               onChangeHandler={(e) => inputChangeHandler(e, idx)}
               classname="mr-1"
             />
