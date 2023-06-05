@@ -1,21 +1,33 @@
 import React, { useState } from "react";
 import IconButton from "../UI/IconButton";
 import { CgClose } from "react-icons/cg";
-import { contents } from "../../mocks/contentsData";
+import PropTypes from "prop-types";
 
-function TagInput() {
+TagInput.propTypes = {
+  person: PropTypes.object,
+  openPost: PropTypes.bool,
+  openEdit: PropTypes.bool,
+};
+
+function TagInput({ person, openPost, openEdit }) {
   const [tagItem, setTagItem] = useState("");
-  const [tagList, setTagList] = useState(contents[2].tags);
-  // const [tagList, setTagList] = useState([]);
+  const [tagList, setTagList] = useState(person?.tags || []);
+  // const [tagList, setTagList] = useState((person && person.tags) || []); // 옵셔널 체이닝? 물음표 앞의 값이 undefined면 person.tags를 undefined로 리턴한다
 
   const addTagsHandler = (e) => {
-    if (e.target.value.length < 9) setTagItem(e.target.value);
+    if (e.target.value.length < 9) {
+      // 태그 글자 제한
+      setTagItem(e.target.value);
+    }
   };
 
   const keyPressHandler = (e) => {
+    // 엔터키 누를시 태그 등록
     if (e.key === "Enter" && e.nativeEvent.isComposing === false) {
+      // 태그 갯수 제한
       if (tagList.length < 3) setTagList([...tagList, tagItem]);
       setTagItem("");
+      e.preventDefault();
     }
   };
 
@@ -27,23 +39,42 @@ function TagInput() {
 
   return (
     <div className="flex items-center justify-between border border-opacity-50 rounded-lg p-2.5 outline-none ">
-      {tagList.map((item, idx) => {
-        return (
-          <div
-            key={idx}
-            className="flex flex-wrap items-center justify-center px-2 mb-1 mr-2 border border-black cursor-pointer rounded-xl"
-          >
-            <span className="text-xs">{`#${item}`}</span>
-            <IconButton
-              onClickFn={() => removeTagItem(idx)}
-              iconType="button"
-              classname=""
+      {openPost &&
+        tagList.map((item, idx) => {
+          return (
+            <div
+              key={idx}
+              className="flex flex-wrap items-center justify-center px-2 mb-1 mr-2 border border-black cursor-pointer rounded-xl"
             >
-              <CgClose className="w-2 ml-1" />
-            </IconButton>
-          </div>
-        );
-      })}
+              <span className="text-xs">{`#${item}`}</span>
+              <IconButton
+                onClickFn={() => removeTagItem(idx)}
+                iconType="button"
+                classname=""
+              >
+                <CgClose className="w-2 ml-1" />
+              </IconButton>
+            </div>
+          );
+        })}
+      {openEdit &&
+        tagList.map((item, idx) => {
+          return (
+            <div
+              key={idx}
+              className="flex flex-wrap items-center justify-center px-2 mb-1 mr-2 border border-black cursor-pointer rounded-xl"
+            >
+              <span className="text-xs">{`#${item}`}</span>
+              <IconButton
+                onClickFn={() => removeTagItem(idx)}
+                iconType="button"
+                classname=""
+              >
+                <CgClose className="w-2 ml-1" />
+              </IconButton>
+            </div>
+          );
+        })}
       <input
         id="tags"
         placeholder="태그를 작성 후 엔터를 입력해 주세요..."

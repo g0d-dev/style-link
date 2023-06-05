@@ -7,13 +7,25 @@ import BasicButton from "../UI/BasicButton";
 import PropTypes from "prop-types";
 import TagInput from "../UI/TagInput";
 import InformationInput from "../UI/InformationInput";
-// import axios from "axios";
+import useEscapeKeyDown from "../../hooks/useEscapeKeyDown";
+// import baseInstance from "../../api";
 
 PostModal.propTypes = {
   setOpenPost: PropTypes.func,
+  openPost: PropTypes.bool,
+  person: PropTypes.object,
 };
 
-function PostModal({ setOpenPost }) {
+function PostModal({ person, setOpenPost, openPost }) {
+  // const [data, setData] = useState([]);
+  // useEffect(() => {
+  //   const onSubmitHandler = (e) => {
+  //     baseInstance.post("/main", data);
+  //     setData((prev) => [data, ...prev]);
+  //     e.preventDefault();
+  //     setOpenPost(false);
+  //   };
+  // }, []);
   const btnClass = "w-24 py-1 hover:bg-black hover:text-white";
 
   // 페이지네이션
@@ -25,6 +37,7 @@ function PostModal({ setOpenPost }) {
   // post submit 핸들러
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    setOpenPost(false);
   };
 
   // 모달
@@ -52,6 +65,8 @@ function PostModal({ setOpenPost }) {
       };
     });
   };
+
+  useEscapeKeyDown(setOpenPost);
 
   return (
     <div className="fixed w-full h-full -translate-x-1/2 -translate-y-1/2 bg-black top-1/2 left-1/2 bg-opacity-80">
@@ -116,13 +131,13 @@ function PostModal({ setOpenPost }) {
               >
                 Tags.
               </label>
-              <TagInput />
+              <TagInput openPost={openPost} person={person} />
               <div className="pt-[30px] mx-auto">
                 <BasicButton
                   buttonText="POST"
-                  btnType="button"
+                  btnType="submit"
                   classname={`${btnClass} mr-[10px] border-opacity-100 w-24 py-1`}
-                  onClickFn={modalCloseHandler}
+                  onClickFn={onSubmitHandler}
                 />
                 <BasicButton
                   buttonText="CANCEL"
@@ -155,14 +170,14 @@ function PostModal({ setOpenPost }) {
                   착용한 상품의 [구입 링크 / 상품명 / 구매 사이즈]를 공유할 수
                   있습니다
                 </p>
-                <InformationInput />
+                <InformationInput person={person} />
               </div>
               <div className="pt-[30px] mx-auto">
                 <BasicButton
                   buttonText="POST"
-                  btnType="button"
+                  btnType="submit"
                   classname={`${btnClass} mr-[10px] border-opacity-100 w-24 py-1`}
-                  onClickFn={modalCloseHandler}
+                  onClickFn={onSubmitHandler}
                 />
                 <BasicButton
                   buttonText="CANCEL"
