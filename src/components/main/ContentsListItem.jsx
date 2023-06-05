@@ -6,9 +6,10 @@ import { BsSuitHeartFill, BsSuitHeart } from "react-icons/bs";
 
 ContentsListItem.propTypes = {
   person: PropTypes.object,
+  classname: PropTypes.object,
 };
 
-function ContentsListItem({ person }) {
+function ContentsListItem({ person, classname }) {
   const [plusLikedCount, setPlusLikedCount] = useState(person.likedCount);
 
   const [isLiked, setIsLiked] = useState(person.isLiked);

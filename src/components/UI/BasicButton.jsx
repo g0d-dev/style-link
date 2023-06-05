@@ -9,7 +9,7 @@ BasicButton.propTypes = {
 };
 
 function BasicButton({ buttonText, classname, onClickFn, btnType }) {
-  const buttonStyle = `${classname} bg-white text-black border rounded-xl font-light text-sm text-center`;
+  const buttonStyle = `${classname} bg-white text-black border rounded-xl text-sm text-center`;
 
   return (
     <>
