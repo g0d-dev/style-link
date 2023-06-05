@@ -29,7 +29,7 @@ function ContentsList() {
 
   const classname =
     "px-2 border-none hover:underline hover:text-slate-800 text-slate-500";
-  const selectedClassname = `text-slate-800 font-extrabold ${classname}`;
+  const selectedClassname = `text-slate-800 font-bold ${classname}`;
 
   const listItemFilter = [
     {

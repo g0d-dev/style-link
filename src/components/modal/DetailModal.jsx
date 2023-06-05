@@ -1,19 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 // import { contents } from "../../mocks/contentsData";
 import { CgClose } from "react-icons/cg";
 import IconButton from "../UI/IconButton";
 import { FiMoreVertical } from "react-icons/fi";
 import PropTypes from "prop-types";
 import useEscapeKeyDown from "../../hooks/useEscapeKeyDown";
+import BasicButton from "../UI/BasicButton";
 
 DetailModal.propTypes = {
   setOpenDetail: PropTypes.func,
   id: PropTypes.number,
   person: PropTypes.object,
   openDetail: PropTypes.bool,
+  classname: PropTypes.object,
 };
 
-function DetailModal({ setOpenDetail, id, person }) {
+function DetailModal({ setOpenDetail, id, person, classname }) {
+  const [openChangeDetail, setOpenChangeDetail] = useState(false);
+
+  const openChangeDetailHandler = () => {
+    setOpenChangeDetail(!openChangeDetail);
+  };
+
+  const contentsChange = [
+    {
+      id: 1,
+      classname,
+      text: "EDIT",
+    },
+    {
+      id: 2,
+      classname,
+      text: "DELETE",
+    },
+  ];
+
   const modalCloseHandler = () => {
     setOpenDetail(false);
   };
@@ -37,9 +58,22 @@ function DetailModal({ setOpenDetail, id, person }) {
           <img src={person.image} className="object-scale-down w-full h-full" />
         </div>
         <div className="bg-[#ffffff] w-1/2 h-[500px] rounded-r-3xl relative">
+          <div className="flex absolute top-[-38px] right-12 pt-10 mt-4">
+            {openChangeDetail &&
+              contentsChange.map((btn) => {
+                return (
+                  <BasicButton
+                    key={btn.id}
+                    buttonText={btn.text}
+                    classname="px-2 py-1 ml-1"
+                  />
+                );
+              })}
+          </div>
           <IconButton
             classname="absolute text-2xl top-5 right-5"
             iconType="button"
+            onClickFn={openChangeDetailHandler}
           >
             <FiMoreVertical />
           </IconButton>
