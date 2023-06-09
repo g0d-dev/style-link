@@ -1,29 +1,24 @@
-import React, { useState } from "react";
-import { contents } from "../../mocks/contentsData";
+import React, { useEffect, useState } from "react";
 import BasicButton from "../UI/BasicButton";
 import ContentsListItem from "./ContentsListItem";
+import { fetchData } from "../utils/fetchData";
 
 function ContentsList() {
-  const initialContents = [...contents].sort(
-    (a, b) => b.createdAt - a.createdAt
-  );
+  const [data, setData] = useState([]);
 
-  const [contentList, setContentList] = useState(initialContents);
+  useEffect(() => {
+    fetchData("/newed", setData);
+  }, [setData]);
+
   const [isSelectedFilter, setIsSelectedFilter] = useState([true, false]);
 
   const filterNewedHandler = () => {
-    const newedContents = [...contentList].sort(
-      (a, b) => b.createdAt - a.createdAt
-    );
-    setContentList(newedContents);
+    fetchData("/newed", setData);
     setIsSelectedFilter([true, false]);
   };
 
   const filterLikedHandler = () => {
-    const likedContents = [...contentList].sort(
-      (a, b) => b.likedCount - a.likedCount
-    );
-    setContentList(likedContents);
+    fetchData("/liked", setData);
     setIsSelectedFilter([false, true]);
   };
 
@@ -59,9 +54,9 @@ function ContentsList() {
         })}
       </div>
       <ul className="flex flex-wrap px-10 py-10">
-        {contentList.map((person) => {
-          return <ContentsListItem key={person.id} person={person} />;
-        })}
+        {data.map((person) => (
+          <ContentsListItem key={person.id} person={person} />
+        ))}
       </ul>
     </div>
   );
