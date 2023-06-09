@@ -3,38 +3,29 @@ import { contents } from "./contentsData";
 import { tags } from "./tagData";
 
 export const handlers = [
-  rest.get("/main", (req, res, ctx) => {
-    const content = contents.reverse();
-    return res(ctx.status(200), ctx.json(content));
-  }),
-
   rest.get("/main/:id", (req, res, ctx) => {
     const { id } = req.params;
     const result = contents.find((content) => content.id === id);
-
     return res(ctx.status(200), ctx.json(result));
   }),
 
-  rest.get("/main/newest", (req, res, ctx) => {
+  rest.get("/newed", (req, res, ctx) => {
     const newestResult = [...contents].sort(
       (a, b) => b.createdAt - a.createdAt
     );
-
     return res(ctx.status(200), ctx.json(newestResult));
   }),
 
-  rest.get("/main/liked", (req, res, ctx) => {
+  rest.get("/liked", (req, res, ctx) => {
     const likedResult = [...contents].sort(
       (a, b) => b.likedCount - a.likedCount
     );
-
     return res(ctx.status(200), ctx.json(likedResult));
   }),
 
   rest.get("/search/:search", (req, res, ctx) => {
     const { search } = req.params;
     const searchResult = tags.filter((tag) => tag.includes(search));
-
     return res(ctx.status(200), ctx.json(searchResult));
   }),
 
@@ -99,7 +90,6 @@ export const handlers = [
     const tagResult = contents.filter((content) =>
       content.tags.includes(search)
     );
-
     return res(ctx.status(200), ctx.json(tagResult));
   }),
 ];

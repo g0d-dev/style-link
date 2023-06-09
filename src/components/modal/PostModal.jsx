@@ -70,7 +70,7 @@ function PostModal({ person, setOpenPost, openPost }) {
 
   return (
     <div className="fixed w-full h-full -translate-x-1/2 -translate-y-1/2 bg-black top-1/2 left-1/2 bg-opacity-80">
-      <div className="fixed z-10 flex items-center justify-center w-full px-10 -translate-x-1/2 -translate-y-1/2 h-1/2 top-1/2 left-1/2">
+      <div className="fixed z-10 flex items-center justify-center w-full h-[500px] px-10 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
         {imageFile ? (
           <label
             htmlFor="uploadImage"
