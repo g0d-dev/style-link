@@ -1,4 +1,4 @@
-import baseInstance from "../../api/index";
+import baseInstance from "../api/index";
 
 export const fetchData = async (url, setFn) => {
   try {

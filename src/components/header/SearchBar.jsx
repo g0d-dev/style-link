@@ -7,6 +7,7 @@ import { getSearchResult } from "../../api/getSearchResult";
 
 function SearchBar() {
   const [searchResult, setSearchResult] = useState([]);
+  const [inputValue, setInputValue] = useState("");
   const debounce = useDebounce();
 
   const handleSearch = async (inputText, setFn) => {
@@ -15,6 +16,7 @@ function SearchBar() {
 
   const onChangeHandler = (e) => {
     const inputText = e.target.value;
+    setInputValue(inputText);
     if (!inputText) setSearchResult([]);
     if (inputText) debounce(handleSearch, inputText, setSearchResult);
   };
@@ -25,10 +27,15 @@ function SearchBar() {
         placeHolderText="검색할 태그를 입력해 주세요"
         classname="w-2/3 h-10 pl-4 mr-3 ml-9 focus:placeholder:text-white"
         onChangeHandler={onChangeHandler}
+        inputValue={inputValue}
       />
       <BsSearch />
       {searchResult.length ? (
-        <DropdownList searchResult={searchResult} />
+        <DropdownList
+          searchResult={searchResult}
+          setSearchResult={setSearchResult}
+          setInputValue={setInputValue}
+        />
       ) : null}
     </div>
   );

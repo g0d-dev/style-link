@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setContents } from "../../store/modules/contents";
 import BasicButton from "../UI/BasicButton";
 import ContentsListItem from "./ContentsListItem";
-import { fetchData } from "../utils/fetchData";
+import { fetchData } from "../../utils/fetchData";
 
 function ContentsList() {
-  const [data, setData] = useState([]);
+  const contents = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchData("/newed", setData);
-  }, [setData]);
+    fetchData("/newed", (data) => {
+      dispatch(setContents(data));
+    });
+  }, [dispatch]);
 
   const [isSelectedFilter, setIsSelectedFilter] = useState([true, false]);
 
   const filterNewedHandler = () => {
-    fetchData("/newed", setData);
+    fetchData("/newed", (data) => {
+      dispatch(setContents(data));
+    });
     setIsSelectedFilter([true, false]);
   };
 
   const filterLikedHandler = () => {
-    fetchData("/liked", setData);
+    fetchData("/liked", (data) => {
+      dispatch(setContents(data));
+    });
     setIsSelectedFilter([false, true]);
   };
 
@@ -54,7 +63,7 @@ function ContentsList() {
         })}
       </div>
       <ul className="flex flex-wrap px-10 py-10">
-        {data.map((person) => (
+        {contents.map((person) => (
           <ContentsListItem key={person.id} person={person} />
         ))}
       </ul>

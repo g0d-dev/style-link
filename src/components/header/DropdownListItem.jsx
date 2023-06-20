@@ -1,18 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import baseInstance from "../../api";
+import { useDispatch } from "react-redux";
+import { setContents } from "../../store/modules/contents";
+import { fetchData } from "../../utils/fetchData";
 
 DropdownListItem.propTypes = {
   result: PropTypes.string,
+  setSearchResult: PropTypes.func,
+  setInputValue: PropTypes.func,
 };
 
-function DropdownListItem({ result }) {
-  const handleClick = async () => {
-    const a = await baseInstance.get(`/main/search/${result}`);
-    console.log(a);
+function DropdownListItem({ result, setSearchResult, setInputValue }) {
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    fetchData(`/main/search/${result}`, (data) => {
+      dispatch(setContents(data));
+    });
+    setSearchResult([]);
+    setInputValue("");
   };
   return (
-    <div className="mt-2 ml-2 text-sm cursor-pointer" onClick={handleClick}>
+    <div className="my-3 ml-4 text-sm cursor-pointer" onClick={handleClick}>
       {result}
     </div>
   );
