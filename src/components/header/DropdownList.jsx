@@ -4,13 +4,22 @@ import DropdownListItem from "./DropdownListItem";
 
 DropdownList.propTypes = {
   searchResult: PropTypes.array,
+  setSearchResult: PropTypes.func,
+  setInputValue: PropTypes.func,
 };
 
-function DropdownList({ searchResult }) {
+function DropdownList({ searchResult, setSearchResult, setInputValue }) {
   return (
-    <div className="absolute w-2/3 h-32 bg-white border rounded-lg top-11">
+    <div className="absolute w-2/3 bg-white border rounded-lg top-11">
       {searchResult.map((result, idx) => {
-        return <DropdownListItem key={idx} result={result} />;
+        return (
+          <DropdownListItem
+            key={idx}
+            result={result}
+            setSearchResult={setSearchResult}
+            setInputValue={setInputValue}
+          />
+        );
       })}
     </div>
   );
