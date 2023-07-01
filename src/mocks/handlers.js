@@ -42,7 +42,7 @@ export const handlers = [
     const data = {
       id: contents.length + 1,
       image:
-        "https://images.unsplash.com/photo-1603217192766-e9db2d08a0fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2535&q=80",
+        "https://plus.unsplash.com/premium_photo-1664868840007-c0644c70796b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3464&q=80",
       displayName: "테스트",
       isLiked: false,
       likedCount: 0,
@@ -61,9 +61,7 @@ export const handlers = [
 
     const newData = Object.assign({}, data, reqData);
     contents.push(newData);
-    console.log(newData);
-    console.log(contents);
-    return res(ctx.status(201), ctx.json(newData));
+    return res(ctx.status(200), ctx.json(newData));
   }),
 
   rest.patch("/main/:id", (req, res, ctx) => {
@@ -79,10 +77,9 @@ export const handlers = [
 
   rest.delete("/main/:id", (req, res, ctx) => {
     const { id } = req.params;
-    const findIdx = contents.findIndex((content) => content.id === id);
-
+    const findIdx = contents.findIndex((content) => content.id === Number(id));
     contents.splice(findIdx, 1);
-    return res(ctx.status(204));
+    return res(ctx.status(200), ctx.json(contents));
   }),
 
   rest.get("/main/search/:search", (req, res, ctx) => {
