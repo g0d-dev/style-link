@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setContents } from "../../store/modules/contents";
 import { CgClose } from "react-icons/cg";
+import { Link } from "react-router-dom";
 import IconButton from "../UI/IconButton";
 import { FiMoreVertical } from "react-icons/fi";
 import PropTypes from "prop-types";
 import useEscapeKeyDown from "../../hooks/useEscapeKeyDown";
 import BasicButton from "../UI/BasicButton";
 import EditModal from "./EditModal";
+import baseInstance from "../../api";
 
 DetailModal.propTypes = {
   setOpenDetail: PropTypes.func,
@@ -26,6 +30,20 @@ function DetailModal({ setOpenDetail, id, person, classname }) {
     setOpenEdit(true);
   };
 
+  const contents = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const deleteHandler = async (e) => {
+    const deleteMessage = window.confirm("리얼 정말로 삭제할거임?");
+    e.preventDefault();
+    if (deleteMessage) {
+      await baseInstance.delete(`/main/${id}`);
+      const filteredContents = contents.filter((content) => content.id !== id);
+      dispatch(setContents(filteredContents));
+    }
+    setOpenDetail(false);
+  };
+
   const contentsChange = [
     {
       id: 1,
@@ -37,7 +55,7 @@ function DetailModal({ setOpenDetail, id, person, classname }) {
       id: 2,
       classname,
       text: "DELETE",
-      onClickFn: openEditHandler,
+      onClickFn: deleteHandler,
     },
   ];
 
@@ -54,6 +72,7 @@ function DetailModal({ setOpenDetail, id, person, classname }) {
     >
       {openEdit && (
         <EditModal
+          id={person.id}
           setOpenEdit={setOpenEdit}
           openEdit={openEdit}
           person={person}
@@ -79,7 +98,7 @@ function DetailModal({ setOpenDetail, id, person, classname }) {
                     key={btn.id}
                     buttonText={btn.text}
                     classname="px-2 py-1 ml-1"
-                    onClickFn={openEditHandler}
+                    onClickFn={btn.onClickFn}
                   />
                 );
               })}
@@ -108,14 +127,16 @@ function DetailModal({ setOpenDetail, id, person, classname }) {
             {person.tags.map((el) => `#${el} `)}
           </p>
           <div className="px-10 pt-10 pb-5 font-bold border-t">착장정보</div>
-          <p role="outfitInformationList" className="px-10">
-            나이키 스포츠웨어 피닉스 플리스
-            <span className="pl-3 text-slate-400">Size: M</span>
-          </p>
-          <p role="outfitInformationList" className="px-10">
-            나이키 레볼루션 6
-            <span className="pl-3 text-slate-400">Size: 240</span>
-          </p>
+          {person.information.map((info, idx) => {
+            return (
+              <div key={idx} className="px-10">
+                <Link to={info.link} target="_blank">
+                  <span>{info.product}</span>
+                </Link>
+                <span className="pl-3 text-slate-400">Size: {info.size}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

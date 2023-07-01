@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setContents } from "../../store/modules/contents";
 import IconButton from "../UI/IconButton";
 import { BsImage } from "react-icons/bs";
 import { RxArrowRight, RxArrowLeft } from "react-icons/rx";
@@ -7,14 +9,49 @@ import BasicButton from "../UI/BasicButton";
 import PropTypes from "prop-types";
 import TagInput from "../UI/TagInput";
 import InformationInput from "../UI/InformationInput";
+import useEscapeKeyDown from "../../hooks/useEscapeKeyDown";
+import baseInstance from "../../api";
 
 EditModal.propTypes = {
+  id: PropTypes.number,
   setOpenEdit: PropTypes.func,
   person: PropTypes.object,
   openEdit: PropTypes.bool,
 };
 
-function EditModal({ setOpenEdit, openEdit, person }) {
+function EditModal({ id, setOpenEdit, openEdit, person }) {
+  const contents = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const onSubmitHandler = async (e) => {
+    const editMessage = window.confirm("리얼 정말로 수정할거임?");
+    e.preventDefault();
+    if (editMessage) {
+      const editBody = {
+        id: person.id,
+        displayName: person.displayName,
+        isLiked: person.isLiked,
+        likedCount: person.likedCount,
+        createdAt: person.createdAt,
+        avatar: person.avatar,
+        spec: person.spec,
+        image: person.image,
+        contents: textInputValue,
+        tags: tagList,
+        information: inputList,
+      };
+      await baseInstance.patch(`/main/${id}`, editBody).then((res) => {
+        const updatedContents = [...contents];
+        updatedContents.splice(id, 1, res);
+        dispatch(setContents(updatedContents));
+      });
+      setOpenEdit(false);
+
+      // const editedContent = [...contents].splice(id, 1, editBody);
+      // dispatch(setContents(editedContent));
+    }
+  };
+
   const btnClass = "w-24 py-1 hover:bg-black hover:text-white";
 
   // 페이지네이션
@@ -23,21 +60,9 @@ function EditModal({ setOpenEdit, openEdit, person }) {
     setChangePage(!changePage);
   };
 
-  // post submit 핸들러
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-    setOpenEdit(false);
-  };
-
   // 모달
   const modalCloseHandler = () => {
     setOpenEdit(false);
-  };
-
-  // textarea 인풋
-  const [textInputValue, setTextInputValue] = useState(person.contents);
-  const onTextAreaChangeHandler = (e) => {
-    setTextInputValue(e.target.value);
   };
 
   // 이미지 업로드
@@ -45,15 +70,26 @@ function EditModal({ setOpenEdit, openEdit, person }) {
   const imageRef = useRef();
   const imagePreviewHandler = () => {
     const file = imageRef.current.files[0];
-    const reader = new FileReader();
-    if (!file) return;
-    reader.readAsDataURL(file);
-    return new Promise(() => {
-      reader.onload = () => {
-        setImageFile(reader.result);
-      };
-    });
+    if (file) URL.revokeObjectURL(file);
+    const url = URL.createObjectURL(file);
+    setImageFile(url);
+    console.log(url);
   };
+
+  // contents 인풋
+  const [textInputValue, setTextInputValue] = useState(person.contents);
+  const onTextAreaChangeHandler = (e) => {
+    setTextInputValue(e.target.value);
+  };
+
+  // tags 인풋
+  const [tagList, setTagList] = useState(person?.tags || []);
+  // const [tagList, setTagList] = useState((person && person.tags) || []); // 옵셔널 체이닝? 물음표 앞의 값이 undefined면 person.tags를 undefined로 리턴한다
+
+  // informations 인풋
+  const [inputList, setInputList] = useState(person?.information || [{}]);
+
+  useEscapeKeyDown(setOpenEdit);
 
   return (
     <>
@@ -118,13 +154,18 @@ function EditModal({ setOpenEdit, openEdit, person }) {
               >
                 Tags.
               </label>
-              <TagInput person={person} openEdit={openEdit} />
+              <TagInput
+                person={person}
+                openEdit={openEdit}
+                tagList={tagList}
+                setTagList={setTagList}
+              />
               <div className="pt-[30px] mx-auto">
                 <BasicButton
                   buttonText="EDIT"
                   btnType="submit"
                   classname={`${btnClass} mr-[10px] border-opacity-100 w-24 py-1`}
-                  onClickFn={modalCloseHandler}
+                  onClickFn={onSubmitHandler}
                 />
                 <BasicButton
                   buttonText="CANCEL"
@@ -157,14 +198,19 @@ function EditModal({ setOpenEdit, openEdit, person }) {
                   착용한 상품의 [구입 링크 / 상품명 / 구매 사이즈]를 공유할 수
                   있습니다
                 </p>
-                <InformationInput person={person} />
+                <InformationInput
+                  person={person}
+                  openEdit={openEdit}
+                  inputList={inputList}
+                  setInputList={setInputList}
+                />
               </div>
               <div className="pt-[30px] mx-auto">
                 <BasicButton
                   buttonText="EDIT"
                   btnType="submit"
                   classname={`${btnClass} mr-[10px] border-opacity-100 w-24 py-1`}
-                  onClickFn={modalCloseHandler}
+                  onClickFn={onSubmitHandler}
                 />
                 <BasicButton
                   buttonText="CANCEL"

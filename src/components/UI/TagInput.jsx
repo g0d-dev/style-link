@@ -7,12 +7,12 @@ TagInput.propTypes = {
   person: PropTypes.object,
   openPost: PropTypes.bool,
   openEdit: PropTypes.bool,
+  tagList: PropTypes.array,
+  setTagList: PropTypes.func,
 };
 
-function TagInput({ person, openPost, openEdit }) {
+function TagInput({ tagList, setTagList, openPost, openEdit }) {
   const [tagItem, setTagItem] = useState("");
-  const [tagList, setTagList] = useState(person?.tags || []);
-  // const [tagList, setTagList] = useState((person && person.tags) || []); // 옵셔널 체이닝? 물음표 앞의 값이 undefined면 person.tags를 undefined로 리턴한다
 
   const addTagsHandler = (e) => {
     if (e.target.value.length < 9) {

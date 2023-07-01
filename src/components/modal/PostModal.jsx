@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setContents } from "../../store/modules/contents";
 import IconButton from "../UI/IconButton";
 import { BsImage } from "react-icons/bs";
 import { RxArrowRight, RxArrowLeft } from "react-icons/rx";
@@ -8,7 +10,7 @@ import PropTypes from "prop-types";
 import TagInput from "../UI/TagInput";
 import InformationInput from "../UI/InformationInput";
 import useEscapeKeyDown from "../../hooks/useEscapeKeyDown";
-// import baseInstance from "../../api";
+import baseInstance from "../../api";
 
 PostModal.propTypes = {
   setOpenPost: PropTypes.func,
@@ -17,15 +19,23 @@ PostModal.propTypes = {
 };
 
 function PostModal({ person, setOpenPost, openPost }) {
-  // const [data, setData] = useState([]);
-  // useEffect(() => {
-  //   const onSubmitHandler = (e) => {
-  //     baseInstance.post("/main", data);
-  //     setData((prev) => [data, ...prev]);
-  //     e.preventDefault();
-  //     setOpenPost(false);
-  //   };
-  // }, []);
+  const contents = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    await baseInstance
+      .post("/main", {
+        contents: textInputValue,
+        tags: tagList,
+        information: inputList,
+      })
+      .then((res) => {
+        dispatch(setContents([res, ...contents]));
+      });
+    setOpenPost(false);
+  };
+
   const btnClass = "w-24 py-1 hover:bg-black hover:text-white";
 
   // 페이지네이션
@@ -34,37 +44,34 @@ function PostModal({ person, setOpenPost, openPost }) {
     setChangePage(!changePage);
   };
 
-  // post submit 핸들러
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-    setOpenPost(false);
-  };
-
   // 모달
   const modalCloseHandler = () => {
     setOpenPost(false);
   };
 
-  // textarea 인풋
+  // 이미지 업로드
+  const [imageFile, setImageFile] = useState("");
+  const imageRef = useRef();
+
+  const imagePreviewHandler = () => {
+    const file = imageRef.current.files[0];
+    if (file) URL.revokeObjectURL(file);
+    const url = URL.createObjectURL(file);
+    setImageFile(url);
+  };
+
+  // contents 인풋
   const [textInputValue, setTextInputValue] = useState("");
   const onTextAreaChangeHandler = (e) => {
     setTextInputValue(e.target.value);
   };
 
-  // 이미지 업로드
-  const [imageFile, setImageFile] = useState("");
-  const imageRef = useRef();
-  const imagePreviewHandler = () => {
-    const file = imageRef.current.files[0];
-    const reader = new FileReader();
-    if (!file) return;
-    reader.readAsDataURL(file);
-    return new Promise(() => {
-      reader.onload = () => {
-        setImageFile(reader.result);
-      };
-    });
-  };
+  // tags 인풋
+  const [tagList, setTagList] = useState(person?.tags || []);
+  // const [tagList, setTagList] = useState((person && person.tags) || []); // 옵셔널 체이닝? 물음표 앞의 값이 undefined면 person.tags를 undefined로 리턴한다
+
+  // informations 인풋
+  const [inputList, setInputList] = useState(person?.information || [{}]);
 
   useEscapeKeyDown(setOpenPost);
 
@@ -131,7 +138,12 @@ function PostModal({ person, setOpenPost, openPost }) {
               >
                 Tags.
               </label>
-              <TagInput openPost={openPost} person={person} />
+              <TagInput
+                openPost={openPost}
+                person={person}
+                tagList={tagList}
+                setTagList={setTagList}
+              />
               <div className="pt-[30px] mx-auto">
                 <BasicButton
                   buttonText="POST"
@@ -170,7 +182,12 @@ function PostModal({ person, setOpenPost, openPost }) {
                   착용한 상품의 [구입 링크 / 상품명 / 구매 사이즈]를 공유할 수
                   있습니다
                 </p>
-                <InformationInput person={person} />
+                <InformationInput
+                  person={person}
+                  openPost={openPost}
+                  inputList={inputList}
+                  setInputList={setInputList}
+                />
               </div>
               <div className="pt-[30px] mx-auto">
                 <BasicButton

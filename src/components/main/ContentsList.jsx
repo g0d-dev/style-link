@@ -63,9 +63,10 @@ function ContentsList() {
         })}
       </div>
       <ul className="flex flex-wrap px-10 py-10">
-        {contents.map((person) => (
-          <ContentsListItem key={person.id} person={person} />
-        ))}
+        {contents &&
+          contents.map((person, idx) => (
+            <ContentsListItem key={idx} person={person} />
+          ))}
       </ul>
     </div>
   );
