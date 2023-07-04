@@ -26,6 +26,7 @@ function EditModal({ id, setOpenEdit, openEdit, person }) {
   const onSubmitHandler = async (e) => {
     const editMessage = window.confirm("리얼 정말로 수정할거임?");
     e.preventDefault();
+
     if (editMessage) {
       const editBody = {
         id: person.id,
@@ -42,7 +43,8 @@ function EditModal({ id, setOpenEdit, openEdit, person }) {
       };
       await baseInstance.patch(`/main/${id}`, editBody).then((res) => {
         const updatedContents = [...contents];
-        updatedContents.splice(id, 1, res);
+        const startDeleteIdx = updatedContents.findIndex((el) => el.id === id);
+        updatedContents.splice(startDeleteIdx, 1, res);
         dispatch(setContents(updatedContents));
       });
       setOpenEdit(false);

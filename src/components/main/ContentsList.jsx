@@ -7,6 +7,7 @@ import { fetchData } from "../../utils/fetchData";
 
 function ContentsList() {
   const contents = useSelector((state) => state);
+  console.log(contents);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -64,8 +65,8 @@ function ContentsList() {
       </div>
       <ul className="flex flex-wrap px-10 py-10">
         {contents &&
-          contents.map((person, idx) => (
-            <ContentsListItem key={idx} person={person} />
+          contents.map((person) => (
+            <ContentsListItem key={person.id} person={person} />
           ))}
       </ul>
     </div>
