@@ -66,8 +66,8 @@ export const handlers = [
 
   rest.patch("/main/:id", (req, res, ctx) => {
     const { id } = req.params;
-    const result = contents.find((content) => content.id === id);
-    const findIdx = contents.findIndex((content) => content.id === id);
+    const result = contents.find((content) => content.id === Number(id));
+    const findIdx = contents.findIndex((content) => content.id === Number(id));
     const data = req.body;
 
     const putData = Object.assign({}, result, data);
