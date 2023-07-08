@@ -11,8 +11,6 @@
 
 ## <span style="font-weight:bold;">개발팀 소개</span> 👨‍👧‍👦
 
----
-
 <br/>
 
 |                              최영웅                               |                              김용희                               |                                 이승미                                 |
@@ -26,8 +24,6 @@
 
 ## <span style="font-weight:bold;">프로젝트 소개</span> 💡
 
----
-
 이 플랫폼을 통해 내가 입은 옷을 공유하고 다른 사람의 착장 정보를 확인할 수 있습니다.<br/>
 저희 팀은 인플루언서나 셀러브리티들의 착장 정보를 얻을 수 있는 공간이 한정적인 것에 아이디어를 얻었습니다.<br/>
 그 아이디어를 바탕으로 유저들간 정보를 공유할 수 있는 OOTD 커뮤니티 플랫폼을 개발하게 되었습니다.<br/>
@@ -36,8 +32,6 @@
 <br/>
 
 ## <span style="font-weight:bold;">시작 가이드</span> 🌟
-
----
 
 ### <span style="font-weight:bold;">요구사항</span>
 
@@ -66,8 +60,6 @@ $ npm run start
 <br/>
 
 ## <span style="font-weight:bold;">기술 스택</span> ⚙️
-
----
 
 ### Environment
 
@@ -117,15 +109,11 @@ $ npm run start
 
 ## <span style="font-weight:bold;">화면 구성</span> 💻
 
----
-
 추후 추가 예정
 <br/>
 <br/>
 
 ## <span style="font-weight:bold;">주요 기능</span> 🔮
-
----
 
 ### <span style="font-weight:bold;">게시글 조회 기능</span>
 
