@@ -2,19 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 
 BasicButton.propTypes = {
-  buttonText: PropTypes.string.isRequired,
-  classname: PropTypes.string.isRequired,
-  onClickFn: PropTypes.func.isRequired,
+  buttonText: PropTypes.string,
+  classname: PropTypes.string,
+  onClickFn: PropTypes.func,
+  btnType: PropTypes.string,
 };
 
-function BasicButton(props) {
-  const { buttonText, classname, onClickFn } = props;
-
-  const buttonStyle = `${classname} bg-black text-white py-1 px-2 w-28 rounded-lg`;
+function BasicButton({ buttonText, classname, onClickFn, btnType }) {
+  const buttonStyle = `${classname} bg-white text-black border rounded-xl text-sm text-center`;
 
   return (
     <>
-      <button onClick={onClickFn} className={buttonStyle}>
+      <button onClick={onClickFn} className={buttonStyle} type={btnType}>
         {buttonText}
       </button>
     </>

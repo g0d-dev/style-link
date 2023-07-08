@@ -2,19 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 
 IconButton.propTypes = {
-  children: PropTypes.node.isRequired,
-  classname: PropTypes.string.isRequired,
-  onClickFn: PropTypes.func.isRequired,
+  children: PropTypes.node,
+  classname: PropTypes.string,
+  onClickFn: PropTypes.func,
+  iconType: PropTypes.string,
 };
 
-function IconButton(props) {
-  const { children, classname, onClickFn } = props;
-
-  const buttonStyle = `${classname} `;
+function IconButton({ children, classname, onClickFn, iconType }) {
+  const buttonStyle = `${classname} text-black`;
 
   return (
     <>
-      <button className={buttonStyle} onClick={onClickFn}>
+      <button className={buttonStyle} onClick={onClickFn} type={iconType}>
         {children}
       </button>
     </>

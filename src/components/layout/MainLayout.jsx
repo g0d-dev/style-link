@@ -1,13 +1,13 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
+import HeaderLayout from "./HeaderLayout";
 
 function MainLayout() {
   return (
-    <>
-      <Header />
+    <div>
+      <HeaderLayout />
       <Outlet />
-    </>
+    </div>
   );
 }
 

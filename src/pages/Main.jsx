@@ -1,11 +1,7 @@
 import React from "react";
+import ContentsList from "../components/main/ContentsList";
 
 function Main() {
-  return (
-    <>
-      <span>MainPage</span>
-    </>
-  );
+  return <ContentsList />;
 }
-
 export default Main;
